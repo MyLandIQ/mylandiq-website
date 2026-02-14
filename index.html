@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLandIQ - AI-Powered Real Estate Analysis</title>
+    <meta name="description" content="MyLandIQ uses artificial intelligence to analyze land and provide development recommendations, market valuations, and investment insights for Indian real estate.">
+    <meta name="keywords" content="real estate, land analysis, property development, AI, India, investment, HBU analysis">
+    <meta name="author" content="MyLandIQ">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="MyLandIQ - AI-Powered Real Estate Analysis">
+    <meta property="og:description" content="Get intelligent property development recommendations powered by AI">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mylandiq.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4ecca3;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4ecca3;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero h1 span {
+            color: #4ecca3;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: #4ecca3;
+            color: #1a1a2e;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(78, 204, 163, 0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+        
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .step-number {
+            background: #4ecca3;
+            color: #1a1a2e;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content p {
+            color: #666;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #4ecca3;
+        }
+        
+        .pricing-card.featured {
+            border-color: #4ecca3;
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4ecca3;
+            color: #1a1a2e;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 1rem 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: #666;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: #4ecca3;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h4 {
+            color: #4ecca3;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #4ecca3;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #888;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">My<span>Land</span>IQ</div>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="/privacy-policy/">Privacy</a></li>
+                <li><a href="/terms/">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>AI-Powered <span>Real Estate</span> Analysis</h1>
+        <p>Get intelligent property development recommendations, market valuations, and investment insights powered by advanced AI technology.</p>
+        <div class="cta-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn btn-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                Download on Play Store
+            </a>
+            <a href="#features" class="btn btn-secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Powerful Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>HBU Analysis</h3>
+                <p>Get Highest and Best Use recommendations based on land size, location, and market conditions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Market Valuation</h3>
+                <p>Accurate property valuations based on local market data and comparable sales.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>ROI Projections</h3>
+                <p>Detailed financial projections including construction costs, revenue estimates, and ROI.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏗️</div>
+                <h3>Development Options</h3>
+                <p>Multiple development scenarios ranked by feasibility and profitability.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Location Intelligence</h3>
+                <p>City-tier based analysis accounting for local demand and infrastructure.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your data is encrypted and never shared. DPDP Act compliant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Enter Property Details</h3>
+                    <p>Input your property address, land area, and select your preferred unit of measurement.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>AI Analysis</h3>
+                    <p>Our AI analyzes your property considering location, market conditions, regulations, and feasibility.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Get Recommendations</h3>
+                    <p>Receive detailed development recommendations with financial projections and timelines.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Make Informed Decisions</h3>
+                    <p>Use the insights to make data-driven investment and development decisions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <h2>Simple Pricing</h2>
+        <p class="pricing-subtitle">Pay only for what you use. No subscriptions required.</p>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">₹99<span>/analysis</span></div>
+                <ul class="pricing-features">
+                    <li>1 Property Analysis</li>
+                    <li>3 Development Options</li>
+                    <li>Financial Projections</li>
+                    <li>Market Analysis</li>
+                </ul>
+                <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn btn-primary">Get Started</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Value Pack</h3>
+                <div class="price">₹399<span>/5 analyses</span></div>
+                <ul class="pricing-features">
+                    <li>5 Property Analyses</li>
+                    <li>Save 20%</li>
+                    <li>All Features Included</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn btn-primary">Best Value</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Professional</h3>
+                <div class="price">₹999<span>/15 analyses</span></div>
+                <ul class="pricing-features">
+                    <li>15 Property Analyses</li>
+                    <li>Save 35%</li>
+                    <li>Bulk Analysis</li>
+                    <li>Dedicated Support</li>
+                </ul>
+                <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn btn-primary">Go Pro</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MyLandIQ</h4>
+                <p style="color: #888; font-size: 0.875rem;">AI-powered real estate analysis for smarter property decisions.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="/terms/">Terms of Service</a></li>
+                    <li><a href="/refund-policy/">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="mailto:support@mylandiq.com">support@mylandiq.com</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Download</h4>
+                <ul>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq">Google Play Store</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MyLandIQ. All rights reserved. | Made in India 🇮🇳</p>
+        </div>
+    </footer>
+</body>
+</html>
