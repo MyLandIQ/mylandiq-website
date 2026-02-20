@@ -3,216 +3,341 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact MyLandIQ support team for help with the AI-powered real estate analysis app.">
+    <meta name="keywords" content="MyLandIQ, contact, support, help, customer service">
+    <meta name="author" content="Rajiv Ohri">
     <title>Contact Us - MyLandIQ</title>
-    <meta name="description" content="Contact MyLandIQ support team for help with the AI-powered real estate analysis app">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
             color: #333;
-            background: #f8f9fa;
-        }
-        
-        header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            min-height: 100vh;
+            padding: 20px;
         }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #4ecca3;
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: white;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
-        .content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        h1 {
-            color: #1a1a2e;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
+
+        .header {
             text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4ecca3;
         }
-        
-        .contact-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+
+        .home-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s;
         }
-        
-        .contact-card h3 {
+
+        .home-link:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .header h1 {
             color: #1a1a2e;
-            margin-bottom: 0.5rem;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        
-        .contact-card p {
-            margin-bottom: 0;
+
+        .header .subtitle {
             color: #666;
+            font-size: 1.1em;
         }
-        
-        .contact-card a {
-            color: #4ecca3;
+
+        h2 {
+            color: #1a1a2e;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #4ecca3;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        a {
+            color: #1a1a2e;
             text-decoration: none;
             font-weight: 500;
         }
-        
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-        
-        .response-time {
-            background: #e8f5e9;
-            border-left: 4px solid #4ecca3;
-            padding: 1rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin-top: 2rem;
-        }
-        
-        footer {
-            background: #1a1a2e;
-            color: #888;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        footer a {
+
+        a:hover {
             color: #4ecca3;
-            text-decoration: none;
         }
-        
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #dee2e6;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            color: #1a1a2e;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .contact-card a.email-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .contact-card a.email-link:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+
+        .response-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #4ecca3;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .response-box h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left: 5px solid #17a2b8;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .address-card {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin: 35px 0;
+        }
+
+        .address-card h3 {
+            color: #4ecca3;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .address-card p {
+            color: #e0e0e0;
+            margin-bottom: 8px;
+        }
+
+        .address-card a {
+            color: #4ecca3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #1a1a2e;
+        }
+
         @media (max-width: 768px) {
-            .content {
-                padding: 1.5rem;
+            .container {
+                padding: 25px;
             }
-            
-            h1 {
-                font-size: 1.75rem;
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .home-link {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/" class="logo">My<span>Land</span>IQ</a>
-            <a href="/">← Back to Home</a>
-        </nav>
-    </header>
-
     <div class="container">
-        <div class="content">
-            <h1>Contact Us</h1>
-            <p>Have questions, feedback, or need help? We're here for you. Choose the best way to reach us below.</p>
-            
-            <div class="contact-cards">
-                <div class="contact-card">
-                    <div class="icon">📧</div>
-                    <h3>General Support</h3>
-                    <p>For app help and general inquiries</p>
-                    <a href="mailto:support@mylandiq.com">support@mylandiq.com</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="icon">💳</div>
-                    <h3>Billing & Refunds</h3>
-                    <p>Payment issues and refund requests</p>
-                    <a href="mailto:billing@mylandiq.com">billing@mylandiq.com</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="icon">🔒</div>
-                    <h3>Privacy & Data</h3>
-                    <p>Data requests and privacy concerns</p>
-                    <a href="mailto:privacy@mylandiq.com">privacy@mylandiq.com</a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="icon">🤝</div>
-                    <h3>Business Inquiries</h3>
-                    <p>Partnerships and enterprise</p>
-                    <a href="mailto:business@mylandiq.com">business@mylandiq.com</a>
-                </div>
+        <div class="header">
+            <a href="/" class="home-link">← Back to Home</a>
+            <h1>📬 Contact Us</h1>
+            <p class="subtitle">We're here to help! Choose the best way to reach us.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon">🛠️</div>
+                <h3>General Support</h3>
+                <p>App help, feature questions, and general inquiries</p>
+                <a href="mailto:support@mylandiq.com" class="email-link">support@mylandiq.com</a>
             </div>
-            
-            <div class="response-time">
-                <strong>Response Time:</strong> We typically respond within 24 hours during business days (Monday - Saturday, 10 AM - 6 PM IST).
+
+            <div class="contact-card">
+                <div class="icon">💳</div>
+                <h3>Billing & Refunds</h3>
+                <p>Payment issues, refund requests, and invoices</p>
+                <a href="mailto:billing@mylandiq.com" class="email-link">billing@mylandiq.com</a>
             </div>
-            
-            <h2 style="margin-top: 2rem; color: #1a1a2e;">Before You Contact Us</h2>
-            <p style="margin-top: 1rem;">Check out our <a href="/faq/">FAQ page</a> for quick answers to common questions about:</p>
-            <ul style="margin-left: 1.5rem; color: #666;">
-                <li>How credits work</li>
-                <li>Getting accurate analysis results</li>
-                <li>Account and payment issues</li>
-                <li>Privacy and data handling</li>
+
+            <div class="contact-card">
+                <div class="icon">🔐</div>
+                <h3>Privacy & Data</h3>
+                <p>Data requests, privacy concerns, and account deletion</p>
+                <a href="mailto:privacy@mylandiq.com" class="email-link">privacy@mylandiq.com</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="icon">🤝</div>
+                <h3>Business Inquiries</h3>
+                <p>Partnerships, enterprise solutions, and collaborations</p>
+                <a href="mailto:business@mylandiq.com" class="email-link">business@mylandiq.com</a>
+            </div>
+        </div>
+
+        <div class="response-box">
+            <h3>⏱️ Response Times</h3>
+            <ul>
+                <li><strong>General inquiries:</strong> 24-48 hours (business days)</li>
+                <li><strong>Billing issues:</strong> 24 hours</li>
+                <li><strong>Privacy/data requests:</strong> 48 hours acknowledgment, 30 days resolution</li>
+                <li><strong>Technical emergencies:</strong> Same day when possible</li>
             </ul>
         </div>
-    </div>
 
-    <footer>
-        <p>© 2026 MyLandIQ. All rights reserved.</p>
-        <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a></p>
-    </footer>
+        <h2>📍 Business Information</h2>
+
+        <div class="address-card">
+            <h3>MyLandIQ</h3>
+            <p><strong>Developer:</strong> Rajiv Ohri</p>
+            <p><strong>Location:</strong> Hoshiarpur, Punjab, India - 146001</p>
+            <p><strong>Website:</strong> <a href="https://www.mylandiq.com">www.mylandiq.com</a></p>
+            <p><strong>Business Hours:</strong> Monday - Saturday, 10 AM - 6 PM IST</p>
+        </div>
+
+        <h2>❓ Before You Contact Us</h2>
+
+        <div class="info-box">
+            <p>Check our resources for quick answers:</p>
+            <ul>
+                <li><a href="/faq/">FAQ Page</a> - Common questions answered</li>
+                <li><a href="/privacy-policy/">Privacy Policy</a> - Data and privacy information</li>
+                <li><a href="/terms/">Terms of Service</a> - Usage rules and guidelines</li>
+                <li><a href="/refund-policy/">Refund Policy</a> - Refund eligibility and process</li>
+            </ul>
+        </div>
+
+        <h2>🐛 Reporting Issues</h2>
+
+        <p>When reporting a bug or technical issue, please include:</p>
+        <ul>
+            <li>Your device model and Android version</li>
+            <li>App version (found in Settings)</li>
+            <li>Description of the issue</li>
+            <li>Steps to reproduce the problem</li>
+            <li>Screenshots if applicable</li>
+        </ul>
+
+        <p>This helps us resolve your issue faster!</p>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a> | <a href="/refund-policy/">Refunds</a> | <a href="/faq/">FAQ</a></p>
+            <br>
+            <p>© 2026 MyLandIQ. All rights reserved.</p>
+        </div>
+    </div>
 </body>
 </html>
