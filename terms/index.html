@@ -3,409 +3,576 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MyLandIQ Terms of Service - Rules and guidelines for using our AI-powered real estate analysis app.">
+    <meta name="keywords" content="MyLandIQ, terms of service, terms and conditions, user agreement">
+    <meta name="author" content="Rajiv Ohri">
     <title>Terms of Service - MyLandIQ</title>
-    <meta name="description" content="Terms of Service for MyLandIQ - AI-Powered Real Estate Analysis App">
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
+            line-height: 1.7;
             color: #333;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
         }
-        
-        header {
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4ecca3;
+        }
+
+        .home-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .home-link:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .header h1 {
+            color: #1a1a2e;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .metadata {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .metadata span {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: 500;
         }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #4ecca3;
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: white;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        
-        .content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        h1 {
-            color: #1a1a2e;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .last-updated {
-            color: #666;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-        
+
         h2 {
             color: #1a1a2e;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            padding-top: 1rem;
+            font-size: 1.6em;
+            margin-top: 45px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #4ecca3;
+            font-weight: 600;
         }
-        
+
         h3 {
-            color: #333;
-            font-size: 1.1rem;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
+            color: #16213e;
+            font-size: 1.25em;
+            margin-top: 28px;
+            margin-bottom: 14px;
+            font-weight: 600;
         }
-        
+
         p {
-            margin-bottom: 1rem;
-            color: #555;
+            margin-bottom: 16px;
+            text-align: justify;
+            color: #444;
         }
-        
+
         ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
+            margin-left: 25px;
+            margin-bottom: 16px;
         }
-        
+
         li {
-            margin-bottom: 0.5rem;
-            color: #555;
+            margin-bottom: 10px;
+            color: #444;
         }
-        
-        .highlight-box {
-            background: #e8f5e9;
-            border-left: 4px solid #4ecca3;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight-box.warning {
-            background: #fff3e0;
-            border-left-color: #ff9800;
-        }
-        
-        .highlight-box.important {
-            background: #ffebee;
-            border-left-color: #f44336;
-        }
-        
-        .contact-box {
-            background: #f5f5f5;
-            padding: 1.5rem;
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            border-left: 5px solid #ffc107;
+            padding: 22px;
+            margin: 25px 0;
             border-radius: 8px;
-            margin-top: 2rem;
         }
-        
-        .contact-box h3 {
-            margin-top: 0;
+
+        .info-box {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border-left: 5px solid #17a2b8;
+            padding: 22px;
+            margin: 25px 0;
+            border-radius: 8px;
         }
-        
+
+        .warning-box {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-left: 5px solid #dc3545;
+            padding: 22px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border-left: 5px solid #4ecca3;
+            padding: 22px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
         a {
-            color: #4ecca3;
-        }
-        
-        footer {
-            background: #1a1a2e;
-            color: #888;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        footer a {
-            color: #4ecca3;
+            color: #1a1a2e;
             text-decoration: none;
+            font-weight: 500;
         }
-        
+
+        a:hover {
+            color: #4ecca3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #1a1a2e;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(78, 204, 163, 0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 35px 0;
+            border: 1px solid #dee2e6;
+        }
+
+        .toc h3 {
+            color: #1a1a2e;
+            margin-top: 0;
+            margin-bottom: 18px;
+            font-size: 1.3em;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+            column-count: 2;
+            column-gap: 30px;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .toc a {
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            color: #4ecca3;
+        }
+
         @media (max-width: 768px) {
-            .content {
-                padding: 1.5rem;
+            .container {
+                padding: 25px;
             }
-            
-            h1 {
-                font-size: 1.75rem;
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .metadata span {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+
+            .toc ul {
+                column-count: 1;
+            }
+
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .back-to-top, .home-link {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/" class="logo">My<span>Land</span>IQ</a>
-            <a href="/">← Back to Home</a>
-        </nav>
-    </header>
-
     <div class="container">
-        <div class="content">
-            <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: February 15, 2026</p>
-            
-            <div class="highlight-box">
-                <strong>Agreement:</strong> By downloading, installing, or using MyLandIQ, you agree to be bound by these Terms of Service. Please read them carefully.
+        <div class="header" id="top">
+            <a href="/" class="home-link">← Back to Home</a>
+            <h1>📜 Terms of Service</h1>
+            <div class="subtitle">MyLandIQ - AI-Powered Real Estate Analysis</div>
+            <div class="metadata">
+                <span>📅 Effective: February 18, 2026</span>
+                <span>🔄 Last Updated: February 18, 2026</span>
+                <span>📋 Version: 1.1</span>
             </div>
+        </div>
 
+        <div class="important-box">
+            <p><strong>Important:</strong> By downloading, installing, or using MyLandIQ, you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📑 Table of Contents</h3>
+            <ul>
+                <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+                <li><a href="#description">2. Service Description</a></li>
+                <li><a href="#eligibility">3. Eligibility</a></li>
+                <li><a href="#accounts">4. User Accounts</a></li>
+                <li><a href="#credits">5. Credits & Payments</a></li>
+                <li><a href="#usage">6. Acceptable Use</a></li>
+                <li><a href="#intellectual">7. Intellectual Property</a></li>
+                <li><a href="#disclaimers">8. Disclaimers</a></li>
+                <li><a href="#limitation">9. Limitation of Liability</a></li>
+                <li><a href="#indemnification">10. Indemnification</a></li>
+                <li><a href="#termination">11. Termination</a></li>
+                <li><a href="#governing">12. Governing Law</a></li>
+                <li><a href="#changes">13. Changes to Terms</a></li>
+                <li><a href="#contact">14. Contact Information</a></li>
+            </ul>
+        </div>
+
+        <!-- Section 1 -->
+        <section id="acceptance">
             <h2>1. Acceptance of Terms</h2>
-            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and MyLandIQ ("Company," "we," "us," or "our") governing your use of the MyLandIQ mobile application ("App") and related services ("Services").</p>
-            <p>By creating an account, making a purchase, or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and MyLandIQ ("Company," "we," "us," or "our"), operated by Rajiv Ohri.</p>
+            <p>By accessing or using the MyLandIQ mobile application ("App"), you acknowledge that you have read, understood, and agree to be bound by these Terms, along with our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/refund-policy/">Refund Policy</a>.</p>
+        </section>
 
-            <h2>2. Eligibility</h2>
+        <!-- Section 2 -->
+        <section id="description">
+            <h2>2. Service Description</h2>
+            <p>MyLandIQ is an AI-powered mobile application that provides:</p>
+            <ul>
+                <li><strong>Property Analysis:</strong> AI-generated Highest and Best Use (HBU) recommendations</li>
+                <li><strong>Market Insights:</strong> Estimated costs, revenues, and ROI projections</li>
+                <li><strong>Regional Data:</strong> Location-specific pricing and market information</li>
+                <li><strong>Analysis History:</strong> Cloud storage of your analysis reports</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>Important Disclaimer:</strong> Our analysis is generated by AI and is for <strong>informational purposes only</strong>. It does not constitute professional advice from real estate agents, architects, lawyers, or financial advisors. Always consult qualified professionals before making investment decisions.</p>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="eligibility">
+            <h2>3. Eligibility</h2>
             <p>To use MyLandIQ, you must:</p>
             <ul>
-                <li>Be at least 18 years of age</li>
-                <li>Have the legal capacity to enter into binding contracts</li>
-                <li>Not be prohibited from using the Services under applicable laws</li>
+                <li>Be at least <strong>18 years of age</strong></li>
+                <li>Have the legal capacity to enter into binding agreements</li>
+                <li>Not be prohibited from using the App under applicable laws</li>
                 <li>Provide accurate and complete registration information</li>
             </ul>
+        </section>
 
-            <h2>3. Description of Services</h2>
-            <p>MyLandIQ provides AI-powered real estate analysis services, including:</p>
-            <ul>
-                <li><strong>Property Analysis:</strong> AI-generated development recommendations based on property details</li>
-                <li><strong>Market Insights:</strong> Location-based market analysis and valuations</li>
-                <li><strong>Financial Projections:</strong> Estimated costs, revenues, and ROI calculations</li>
-                <li><strong>Development Options:</strong> Multiple development scenarios ranked by feasibility</li>
-            </ul>
+        <!-- Section 4 -->
+        <section id="accounts">
+            <h2>4. User Accounts</h2>
 
-            <h2>4. Account Registration</h2>
             <h3>4.1 Account Creation</h3>
-            <p>To access our Services, you must create an account using:</p>
+            <p>You may create an account using Google Sign-In. You are responsible for:</p>
             <ul>
-                <li>Google Sign-In, or</li>
-                <li>Email and password registration</li>
-            </ul>
-            
-            <h3>4.2 Account Security</h3>
-            <p>You are responsible for:</p>
-            <ul>
-                <li>Maintaining the confidentiality of your account credentials</li>
+                <li>Maintaining the confidentiality of your account</li>
                 <li>All activities that occur under your account</li>
                 <li>Notifying us immediately of any unauthorized access</li>
             </ul>
 
-            <h2>5. Credits and Payment</h2>
+            <h3>4.2 Account Termination</h3>
+            <p>You may delete your account at any time through the App settings. We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="credits">
+            <h2>5. Credits & Payments</h2>
+
             <h3>5.1 Credit System</h3>
-            <p>MyLandIQ operates on a credit-based system:</p>
             <ul>
-                <li>Each property analysis consumes 1 credit</li>
-                <li>Credits can be purchased through the App via Google Play</li>
-                <li>Credits do not expire and are non-transferable</li>
+                <li>Each property analysis requires <strong>1 credit</strong></li>
+                <li>Credits can be purchased through Google Play Store</li>
+                <li>Credits are non-transferable and tied to your account</li>
+                <li>Credits do not expire</li>
             </ul>
-            
+
             <h3>5.2 Pricing</h3>
-            <p>Current credit pricing (subject to change):</p>
+            <p>Current credit packages (prices in INR, may vary):</p>
             <ul>
                 <li>1 Credit: ₹99</li>
                 <li>5 Credits: ₹399 (20% savings)</li>
                 <li>15 Credits: ₹999 (35% savings)</li>
             </ul>
-            <p>All prices are inclusive of applicable taxes (GST).</p>
-            
-            <h3>5.3 Payment Processing</h3>
-            <p>All payments are processed through Google Play. By making a purchase, you also agree to Google Play's terms of service.</p>
 
-            <h2>6. Refund Policy</h2>
-            <p>Please refer to our detailed <a href="/refund-policy/">Refund Policy</a>. In summary:</p>
+            <h3>5.3 Refunds</h3>
+            <p>Refunds are subject to our <a href="/refund-policy/">Refund Policy</a>. Generally:</p>
             <ul>
-                <li>Unused credits may be refunded within 7 days of purchase</li>
-                <li>No refunds for credits that have been used</li>
-                <li>Technical issues may qualify for credit restoration or refund</li>
+                <li>Unused credits: Refundable within 7 days of purchase</li>
+                <li>Used credits: Non-refundable</li>
+                <li>Technical failures: Credit automatically restored</li>
             </ul>
+        </section>
 
-            <h2>7. Acceptable Use</h2>
-            <h3>7.1 Permitted Use</h3>
-            <p>You may use MyLandIQ for:</p>
+        <!-- Section 6 -->
+        <section id="usage">
+            <h2>6. Acceptable Use</h2>
+
+            <h3>6.1 You Agree NOT To:</h3>
             <ul>
-                <li>Personal property research and analysis</li>
-                <li>Professional real estate consultation (for your clients)</li>
-                <li>Investment decision support</li>
-                <li>Educational purposes</li>
-            </ul>
-            
-            <h3>7.2 Prohibited Activities</h3>
-            <p>You agree NOT to:</p>
-            <ul>
-                <li>Reverse engineer, decompile, or disassemble the App</li>
-                <li>Attempt to gain unauthorized access to our systems</li>
-                <li>Use automated scripts or bots to access the Services</li>
-                <li>Share your account credentials with others</li>
-                <li>Use the Services for any illegal purpose</li>
+                <li>Use the App for any illegal purpose</li>
+                <li>Attempt to reverse engineer, decompile, or hack the App</li>
+                <li>Circumvent any security measures or access controls</li>
+                <li>Use automated systems (bots, scrapers) to access the App</li>
                 <li>Resell or redistribute analysis results commercially without permission</li>
-                <li>Submit false or misleading property information</li>
-                <li>Interfere with or disrupt the Services</li>
+                <li>Submit false, misleading, or fraudulent information</li>
+                <li>Interfere with the proper functioning of the App</li>
+                <li>Violate any applicable laws or regulations</li>
             </ul>
 
-            <h2>8. Intellectual Property</h2>
-            <h3>8.1 Our Rights</h3>
-            <p>MyLandIQ and its licensors own all rights to:</p>
-            <ul>
-                <li>The App and its underlying technology</li>
-                <li>Our trademarks, logos, and branding</li>
-                <li>AI models and analysis algorithms</li>
-                <li>Website content and documentation</li>
-            </ul>
-            
-            <h3>8.2 Your Rights</h3>
-            <p>You retain ownership of:</p>
-            <ul>
-                <li>Property information you provide</li>
-                <li>Analysis results generated for your use</li>
-            </ul>
-            <p>You grant us a limited license to process your property data solely for providing the Services.</p>
+            <h3>6.2 Fair Use</h3>
+            <p>We reserve the right to limit excessive usage that impacts service quality for other users.</p>
+        </section>
 
-            <h2>9. Disclaimer of Warranties</h2>
-            <div class="highlight-box important">
-                <strong>IMPORTANT:</strong> MyLandIQ provides AI-generated analysis for INFORMATIONAL PURPOSES ONLY. Our recommendations are NOT professional advice and should not be relied upon as the sole basis for any investment, legal, or financial decisions.
+        <!-- Section 7 -->
+        <section id="intellectual">
+            <h2>7. Intellectual Property</h2>
+
+            <h3>7.1 Our Property</h3>
+            <p>The App, including its design, code, algorithms, content, and branding, is owned by MyLandIQ and protected by intellectual property laws.</p>
+
+            <h3>7.2 Your Content</h3>
+            <p>You retain ownership of property addresses and data you input. By using the App, you grant us a limited license to process this data for providing our services.</p>
+
+            <h3>7.3 Analysis Reports</h3>
+            <p>Analysis reports generated for you may be used for your personal or business purposes. You may not resell reports as a competing service.</p>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="disclaimers">
+            <h2>8. Disclaimers</h2>
+
+            <div class="warning-box">
+                <p><strong>THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.</strong></p>
             </div>
-            
-            <p>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+
+            <p>We disclaim all warranties, express or implied, including:</p>
             <ul>
-                <li>Accuracy, completeness, or reliability of analysis results</li>
+                <li>Accuracy, reliability, or completeness of analysis results</li>
                 <li>Fitness for a particular purpose</li>
-                <li>Non-infringement of third-party rights</li>
                 <li>Uninterrupted or error-free operation</li>
-            </ul>
-            
-            <h3>9.1 AI Limitations</h3>
-            <p>You acknowledge that:</p>
-            <ul>
-                <li>AI-generated analysis may contain errors or inaccuracies</li>
-                <li>Market conditions change and past data may not predict future results</li>
-                <li>Our recommendations do not guarantee investment success</li>
-                <li>You should consult qualified professionals before making decisions</li>
+                <li>Compatibility with all devices</li>
             </ul>
 
-            <h2>10. Limitation of Liability</h2>
-            <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW:</p>
+            <h3>8.1 AI Limitations</h3>
+            <p>Our AI analysis:</p>
             <ul>
-                <li>MyLandIQ shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
-                <li>Our total liability shall not exceed the amount you paid for credits in the 12 months preceding the claim</li>
-                <li>We are not liable for any decisions made based on our analysis</li>
-                <li>We are not responsible for third-party services (Google, Firebase, etc.)</li>
+                <li>May contain errors or inaccuracies</li>
+                <li>Is based on available data which may be outdated</li>
+                <li>Should not replace professional due diligence</li>
+                <li>Does not guarantee investment outcomes</li>
             </ul>
+        </section>
 
-            <h2>11. Indemnification</h2>
-            <p>You agree to indemnify and hold harmless MyLandIQ, its officers, directors, employees, and agents from any claims, damages, losses, or expenses arising from:</p>
+        <!-- Section 9 -->
+        <section id="limitation">
+            <h2>9. Limitation of Liability</h2>
+
+            <p>To the maximum extent permitted by law:</p>
+
+            <div class="important-box">
+                <p><strong>MyLandIQ shall not be liable for any indirect, incidental, special, consequential, or punitive damages</strong>, including but not limited to:</p>
+                <ul>
+                    <li>Loss of profits, revenue, or business opportunities</li>
+                    <li>Investment losses based on our analysis</li>
+                    <li>Data loss or corruption</li>
+                    <li>Service interruptions</li>
+                </ul>
+            </div>
+
+            <p><strong>Our total liability shall not exceed the amount you paid for credits in the 12 months preceding the claim.</strong></p>
+        </section>
+
+        <!-- Section 10 -->
+        <section id="indemnification">
+            <h2>10. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless MyLandIQ, its owner, employees, and affiliates from any claims, damages, losses, or expenses arising from:</p>
             <ul>
-                <li>Your use of the Services</li>
+                <li>Your use of the App</li>
                 <li>Your violation of these Terms</li>
                 <li>Your violation of any third-party rights</li>
-                <li>Any decisions you make based on our analysis</li>
+                <li>Investment decisions based on our analysis</li>
             </ul>
+        </section>
 
-            <h2>12. Account Termination</h2>
-            <h3>12.1 Termination by You</h3>
-            <p>You may delete your account at any time through:</p>
-            <ul>
-                <li>App Settings → Delete Account</li>
-                <li>Emailing support@mylandiq.com</li>
-            </ul>
-            
-            <h3>12.2 Termination by Us</h3>
-            <p>We may suspend or terminate your account if you:</p>
+        <!-- Section 11 -->
+        <section id="termination">
+            <h2>11. Termination</h2>
+
+            <h3>11.1 By You</h3>
+            <p>You may stop using the App and delete your account at any time.</p>
+
+            <h3>11.2 By Us</h3>
+            <p>We may suspend or terminate your access if you:</p>
             <ul>
                 <li>Violate these Terms</li>
                 <li>Engage in fraudulent activity</li>
-                <li>Abuse our Services or other users</li>
-            </ul>
-            
-            <h3>12.3 Effect of Termination</h3>
-            <p>Upon termination:</p>
-            <ul>
-                <li>Your access to the Services will be revoked</li>
-                <li>Unused credits are forfeited (unless termination is by us without cause)</li>
-                <li>Your data will be deleted per our Privacy Policy</li>
+                <li>Abuse the service or other users</li>
             </ul>
 
+            <h3>11.3 Effect of Termination</h3>
+            <ul>
+                <li>Unused credits may be forfeited upon termination for violation</li>
+                <li>Your analysis history will be deleted</li>
+                <li>Sections 7-10 survive termination</li>
+            </ul>
+        </section>
+
+        <!-- Section 12 -->
+        <section id="governing">
+            <h2>12. Governing Law & Disputes</h2>
+
+            <h3>12.1 Governing Law</h3>
+            <p>These Terms are governed by the laws of <strong>India</strong>, without regard to conflict of law principles.</p>
+
+            <h3>12.2 Dispute Resolution</h3>
+            <ul>
+                <li><strong>Informal Resolution:</strong> Contact us first at <a href="mailto:support@mylandiq.com">support@mylandiq.com</a></li>
+                <li><strong>Jurisdiction:</strong> Courts of Hoshiarpur, Punjab, India shall have exclusive jurisdiction</li>
+            </ul>
+
+            <h3>12.3 Consumer Protection</h3>
+            <p>Nothing in these Terms limits your rights under the Consumer Protection Act, 2019 or other applicable Indian consumer protection laws.</p>
+        </section>
+
+        <!-- Section 13 -->
+        <section id="changes">
             <h2>13. Changes to Terms</h2>
-            <p>We may modify these Terms at any time. We will notify you of material changes through:</p>
+            <p>We may modify these Terms at any time. Changes will be effective upon posting. Continued use after changes constitutes acceptance.</p>
+            <p>For significant changes, we will notify you via:</p>
             <ul>
-                <li>In-app notifications</li>
-                <li>Email to your registered address</li>
-                <li>Updated "Last Updated" date</li>
+                <li>In-app notification</li>
+                <li>Updated "Last Modified" date</li>
+                <li>Email (for major changes)</li>
             </ul>
-            <p>Continued use after changes constitutes acceptance of the new Terms.</p>
+        </section>
 
-            <h2>14. Governing Law and Disputes</h2>
-            <h3>14.1 Governing Law</h3>
-            <p>These Terms are governed by the laws of India, without regard to conflict of law principles.</p>
-            
-            <h3>14.2 Jurisdiction</h3>
-            <p>Any disputes shall be subject to the exclusive jurisdiction of the courts in Ludhiana, Punjab, India.</p>
-            
-            <h3>14.3 Dispute Resolution</h3>
-            <p>Before filing any legal claim, you agree to attempt to resolve the dispute informally by contacting us at legal@mylandiq.com. We will try to resolve the dispute within 30 days.</p>
+        <!-- Section 14 -->
+        <section id="contact">
+            <h2>14. Contact Information</h2>
 
-            <h2>15. General Provisions</h2>
-            <ul>
-                <li><strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and MyLandIQ</li>
-                <li><strong>Severability:</strong> If any provision is found invalid, the remaining provisions remain in effect</li>
-                <li><strong>Waiver:</strong> Failure to enforce any right does not constitute a waiver</li>
-                <li><strong>Assignment:</strong> You may not assign these Terms; we may assign them freely</li>
-                <li><strong>Force Majeure:</strong> We are not liable for delays due to circumstances beyond our control</li>
-            </ul>
-
-            <h2>16. Contact Information</h2>
-            <div class="contact-box">
-                <h3>Get in Touch</h3>
-                <p><strong>General Inquiries:</strong> support@mylandiq.com<br>
-                <strong>Legal Matters:</strong> legal@mylandiq.com<br>
-                <strong>Privacy Concerns:</strong> privacy@mylandiq.com<br>
-                <strong>Website:</strong> www.mylandiq.com</p>
+            <div class="success-box">
+                <p><strong>Questions about these Terms?</strong></p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:support@mylandiq.com">support@mylandiq.com</a></li>
+                    <li><strong>Website:</strong> <a href="https://www.mylandiq.com">www.mylandiq.com</a></li>
+                    <li><strong>Address:</strong> Hoshiarpur, Punjab, India - 146001</li>
+                </ul>
             </div>
+        </section>
 
-            <div class="highlight-box">
-                <strong>Summary:</strong> Use MyLandIQ responsibly for informational purposes. Our AI analysis helps inform decisions but doesn't replace professional advice. Be honest, don't abuse the system, and we'll provide the best service we can.
-            </div>
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>Effective Date:</strong> February 18, 2026</p>
+            <p><strong>Last Updated:</strong> February 18, 2026</p>
+            <p><strong>Version:</strong> 1.1</p>
+            <br>
+            <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/refund-policy/">Refund Policy</a> | <a href="/contact/">Contact</a></p>
+            <br>
+            <p>© 2026 MyLandIQ. All rights reserved.</p>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 MyLandIQ. All rights reserved.</p>
-        <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/refund-policy/">Refund Policy</a></p>
-    </footer>
+    <a href="#top" class="back-to-top" title="Back to top">↑</a>
 </body>
 </html>
