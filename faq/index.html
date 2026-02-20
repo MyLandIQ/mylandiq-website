@@ -3,372 +3,453 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions about MyLandIQ AI-powered real estate analysis app.">
+    <meta name="keywords" content="MyLandIQ, FAQ, frequently asked questions, help, support">
+    <meta name="author" content="Rajiv Ohri">
     <title>FAQ - MyLandIQ</title>
-    <meta name="description" content="Frequently asked questions about MyLandIQ AI-powered real estate analysis app">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
             color: #333;
-            background: #f8f9fa;
-        }
-        
-        header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            min-height: 100vh;
+            padding: 20px;
         }
-        
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #4ecca3;
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: white;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
-        .content {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #4ecca3;
         }
-        
-        h1 {
+
+        .home-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .home-link:hover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .header h1 {
             color: #1a1a2e;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
-        
-        .subtitle {
+
+        .header .subtitle {
             color: #666;
-            margin-bottom: 2rem;
+            font-size: 1.1em;
         }
-        
-        .faq-section {
-            margin-bottom: 2rem;
+
+        a {
+            color: #1a1a2e;
+            text-decoration: none;
+            font-weight: 500;
         }
-        
-        .faq-section h2 {
+
+        a:hover {
             color: #4ecca3;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
+        }
+
+        .faq-section {
+            margin-bottom: 40px;
+        }
+
+        .faq-section h2 {
+            color: #1a1a2e;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 2px solid #4ecca3;
+            font-weight: 600;
         }
-        
+
         .faq-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
         }
-        
+
         .faq-question {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px 25px;
             font-weight: 600;
             color: #1a1a2e;
-            margin-bottom: 0.5rem;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.3s;
         }
-        
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+
         .faq-question::after {
             content: '+';
-            font-size: 1.5rem;
+            font-size: 1.5em;
             color: #4ecca3;
+            font-weight: 700;
+            transition: transform 0.3s;
         }
-        
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
         .faq-answer {
-            color: #666;
-            padding-left: 0;
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #444;
         }
-        
+
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 500px;
+        }
+
         .faq-answer ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
+            margin-left: 20px;
+            margin-top: 10px;
         }
-        
+
         .faq-answer li {
-            margin-bottom: 0.25rem;
+            margin-bottom: 8px;
         }
-        
+
         .contact-cta {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 40px;
         }
-        
+
         .contact-cta h3 {
-            color: #1a1a2e;
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-cta p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-cta a {
-            background: #4ecca3;
-            color: #1a1a2e;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-        }
-        
-        footer {
-            background: #1a1a2e;
-            color: #888;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        footer a {
             color: #4ecca3;
-            text-decoration: none;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
-        
+
+        .contact-cta p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta a.btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4ecca3 0%, #38b28a 100%);
+            color: #1a1a2e;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .contact-cta a.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 204, 163, 0.4);
+            color: #1a1a2e;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #1a1a2e;
+        }
+
         @media (max-width: 768px) {
-            .content {
-                padding: 1.5rem;
+            .container {
+                padding: 25px;
             }
-            
-            h1 {
-                font-size: 1.75rem;
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 15px 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+            .home-link {
+                display: none;
+            }
+            .faq-answer {
+                max-height: none !important;
+                padding: 15px 25px !important;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/" class="logo">My<span>Land</span>IQ</a>
-            <a href="/">← Back to Home</a>
-        </nav>
-    </header>
-
     <div class="container">
-        <div class="content">
-            <h1>Frequently Asked Questions</h1>
+        <div class="header">
+            <a href="/" class="home-link">← Back to Home</a>
+            <h1>❓ Frequently Asked Questions</h1>
             <p class="subtitle">Find answers to common questions about MyLandIQ</p>
-            
-            <div class="faq-section">
-                <h2>📱 Getting Started</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What is MyLandIQ?</div>
-                    <div class="faq-answer">
-                        MyLandIQ is an AI-powered mobile app that analyzes land and property to provide development recommendations, market valuations, and investment insights. Simply enter a property address and land size, and our AI will generate detailed analysis including best use cases, estimated costs, revenues, and ROI projections.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How do I create an account?</div>
-                    <div class="faq-answer">
-                        You can create an account using:
-                        <ul>
-                            <li>Google Sign-In (recommended for fastest setup)</li>
-                            <li>Email and password registration</li>
-                        </ul>
-                        Just download the app from Google Play Store and follow the sign-up prompts.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Is MyLandIQ available on iOS?</div>
-                    <div class="faq-answer">
-                        Currently, MyLandIQ is available only on Android devices through the Google Play Store. We're working on an iOS version and will announce when it's available.
-                    </div>
+        </div>
+
+        <!-- Getting Started -->
+        <div class="faq-section">
+            <h2>📱 Getting Started</h2>
+
+            <div class="faq-item active">
+                <div class="faq-question">What is MyLandIQ?</div>
+                <div class="faq-answer">
+                    MyLandIQ is an AI-powered mobile app that analyzes land and property to provide development recommendations, market valuations, and investment insights. Simply enter a property address and land size, and our AI generates detailed analysis including best use cases, estimated costs, revenues, and ROI projections.
                 </div>
             </div>
-            
-            <div class="faq-section">
-                <h2>💳 Credits & Payments</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How do credits work?</div>
-                    <div class="faq-answer">
-                        Each property analysis uses 1 credit. You can purchase credits in bundles:
-                        <ul>
-                            <li>1 Credit: ₹99</li>
-                            <li>5 Credits: ₹399 (save 20%)</li>
-                            <li>15 Credits: ₹999 (save 35%)</li>
-                        </ul>
-                        Credits never expire and are tied to your account.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What payment methods are accepted?</div>
-                    <div class="faq-answer">
-                        All payments are processed through Google Play, which accepts:
-                        <ul>
-                            <li>Credit/Debit Cards (Visa, Mastercard, etc.)</li>
-                            <li>UPI</li>
-                            <li>Net Banking</li>
-                            <li>Google Play Balance</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I get a refund?</div>
-                    <div class="faq-answer">
-                        Yes, under certain conditions. Unused credits can be refunded within 7 days of purchase. Used credits are non-refundable. See our <a href="/refund-policy/">Refund Policy</a> for complete details.
-                    </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How do I create an account?</div>
+                <div class="faq-answer">
+                    Download the app from Google Play Store and sign in with your Google account. It's quick and secure - no separate password needed!
                 </div>
             </div>
-            
-            <div class="faq-section">
-                <h2>📊 Analysis & Results</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How accurate is the analysis?</div>
-                    <div class="faq-answer">
-                        Our AI provides estimates based on location, property size, and market data. While we strive for accuracy, results are for <strong>informational purposes only</strong> and should not replace professional advice from real estate consultants, architects, or financial advisors. Market conditions vary and actual results may differ.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">What information do I need to provide?</div>
-                    <div class="faq-answer">
-                        For the best analysis, provide:
-                        <ul>
-                            <li><strong>Property Address:</strong> As specific as possible (street, area, city, state)</li>
-                            <li><strong>Land Area:</strong> Total plot size</li>
-                            <li><strong>Unit:</strong> Square feet, square yards, square meters, or acres</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Which locations are supported?</div>
-                    <div class="faq-answer">
-                        MyLandIQ works best for properties in India, with optimized analysis for cities across all tiers (metros, large cities, and small towns). We also support analysis for properties in other countries like USA, UK, UAE, Australia, and more, though Indian properties receive the most detailed local insights.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">How long does analysis take?</div>
-                    <div class="faq-answer">
-                        Analysis typically completes within 15-30 seconds. During high demand periods, it may take up to 60 seconds. If analysis fails due to technical issues, your credit will be automatically restored.
-                    </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Is MyLandIQ available on iOS?</div>
+                <div class="faq-answer">
+                    Currently, MyLandIQ is available only on Android devices through the Google Play Store. We're working on an iOS version and will announce when it's available.
                 </div>
             </div>
-            
-            <div class="faq-section">
-                <h2>🔒 Privacy & Data</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Is my data secure?</div>
-                    <div class="faq-answer">
-                        Yes. We use industry-standard encryption and store data on secure Google Firebase servers. We don't sell your data to third parties. See our <a href="/privacy-policy/">Privacy Policy</a> for details.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Can I delete my account and data?</div>
-                    <div class="faq-answer">
-                        Yes. You can delete your account anytime from Settings → Delete Account. This will permanently remove your account, analysis history, and personal data from our systems.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Does the app track my location?</div>
-                    <div class="faq-answer">
-                        No. We only use the property address you enter for analysis. We do not access or track your device's GPS location.
-                    </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Which countries are supported?</div>
+                <div class="faq-answer">
+                    MyLandIQ works best for properties in <strong>India</strong>, with optimized analysis for cities across all tiers (metros, large cities, and small towns). We also support properties in USA, UK, UAE, Australia, Canada, and other English-speaking markets with region-specific pricing data.
                 </div>
             </div>
-            
-            <div class="faq-section">
-                <h2>🛠️ Technical Issues</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">Analysis failed but my credit was deducted. What do I do?</div>
-                    <div class="faq-answer">
-                        If analysis fails due to a technical error, your credit should be automatically restored. If not, contact us at <a href="mailto:support@mylandiq.com">support@mylandiq.com</a> with details, and we'll restore your credit promptly.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">The app is crashing. How can I fix it?</div>
-                    <div class="faq-answer">
-                        Try these steps:
-                        <ul>
-                            <li>Update to the latest version from Google Play</li>
-                            <li>Clear app cache (Settings → Apps → MyLandIQ → Clear Cache)</li>
-                            <li>Restart your device</li>
-                            <li>If issues persist, contact support with your device model and Android version</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">I can't log in to my account</div>
-                    <div class="faq-answer">
-                        If you're having login issues:
-                        <ul>
-                            <li>Check your internet connection</li>
-                            <li>Try the "Forgot Password" option if using email login</li>
-                            <li>Make sure you're using the same Google account if you signed up with Google</li>
-                            <li>Contact support if problems continue</li>
-                        </ul>
-                    </div>
+        </div>
+
+        <!-- Credits & Payments -->
+        <div class="faq-section">
+            <h2>💳 Credits & Payments</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How do credits work?</div>
+                <div class="faq-answer">
+                    Each property analysis uses <strong>1 credit</strong>. You can purchase credits in bundles:
+                    <ul>
+                        <li>1 Credit: ₹99</li>
+                        <li>5 Credits: ₹399 (save 20%)</li>
+                        <li>15 Credits: ₹999 (save 35%)</li>
+                    </ul>
+                    Credits never expire and are tied to your account.
                 </div>
             </div>
-            
-            <div class="contact-cta">
-                <h3>Still have questions?</h3>
-                <p>We're here to help! Reach out to our support team.</p>
-                <a href="/contact/">Contact Support</a>
+
+            <div class="faq-item">
+                <div class="faq-question">What payment methods are accepted?</div>
+                <div class="faq-answer">
+                    All payments are processed securely through Google Play, which accepts:
+                    <ul>
+                        <li>Credit/Debit Cards (Visa, Mastercard, RuPay)</li>
+                        <li>UPI (Google Pay, PhonePe, Paytm, etc.)</li>
+                        <li>Net Banking</li>
+                        <li>Google Play Balance</li>
+                    </ul>
+                </div>
             </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I get a refund?</div>
+                <div class="faq-answer">
+                    Yes, under certain conditions. Unused credits can be refunded within 7 days of purchase. Used credits are non-refundable. See our <a href="/refund-policy/">Refund Policy</a> for complete details.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do I get an invoice/receipt?</div>
+                <div class="faq-answer">
+                    Yes! Google Play sends you a receipt email for every purchase. For GST-compliant invoices (Indian users), contact us at <a href="mailto:billing@mylandiq.com">billing@mylandiq.com</a> with your purchase details.
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis & Results -->
+        <div class="faq-section">
+            <h2>📊 Analysis & Results</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">How accurate is the analysis?</div>
+                <div class="faq-answer">
+                    Our AI provides estimates based on location, property size, and market data. While we strive for accuracy, results are for <strong>informational purposes only</strong> and should not replace professional advice from real estate consultants, architects, or financial advisors. Market conditions vary and actual results may differ.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What information do I need to provide?</div>
+                <div class="faq-answer">
+                    For the best analysis, provide:
+                    <ul>
+                        <li><strong>Property Address:</strong> As specific as possible (street, area, city, state)</li>
+                        <li><strong>Land Area:</strong> Total plot size</li>
+                        <li><strong>Unit:</strong> Square feet, square yards, square meters, marla, kanal, or acres</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How long does analysis take?</div>
+                <div class="faq-answer">
+                    Analysis typically completes within <strong>15-30 seconds</strong>. During high demand periods, it may take up to 60 seconds. If analysis fails due to technical issues, your credit will be automatically restored.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I save and share my analysis?</div>
+                <div class="faq-answer">
+                    Yes! All your analyses are saved to your account history. You can view past analyses anytime and export them as PDF reports to share with others.
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacy & Security -->
+        <div class="faq-section">
+            <h2>🔒 Privacy & Security</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Is my data secure?</div>
+                <div class="faq-answer">
+                    Yes. We use industry-standard encryption (TLS 1.3) and store data on secure Google Firebase servers. We don't sell your data to third parties. See our <a href="/privacy-policy/">Privacy Policy</a> for details.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I delete my account and data?</div>
+                <div class="faq-answer">
+                    Yes. You can delete your account anytime from <strong>Settings → Delete Account</strong>. This permanently removes your account, analysis history, and personal data from our systems within 30 days.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Does the app track my location?</div>
+                <div class="faq-answer">
+                    We only use GPS location when you explicitly grant permission to auto-detect property coordinates. You can always enter addresses manually without enabling location access.
+                </div>
+            </div>
+        </div>
+
+        <!-- Troubleshooting -->
+        <div class="faq-section">
+            <h2>🔧 Troubleshooting</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">Analysis failed but my credit was deducted. What do I do?</div>
+                <div class="faq-answer">
+                    If analysis fails due to a technical error, your credit should be automatically restored. If not, contact us at <a href="mailto:support@mylandiq.com">support@mylandiq.com</a> with the date, time, and property address. We'll restore your credit within 24 hours.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">The app is crashing. How can I fix it?</div>
+                <div class="faq-answer">
+                    Try these steps:
+                    <ul>
+                        <li>Update to the latest version from Google Play</li>
+                        <li>Clear app cache (Settings → Apps → MyLandIQ → Clear Cache)</li>
+                        <li>Restart your device</li>
+                        <li>If issues persist, contact support with your device model and Android version</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">I can't log in to my account</div>
+                <div class="faq-answer">
+                    If you're having login issues:
+                    <ul>
+                        <li>Check your internet connection</li>
+                        <li>Make sure you're using the same Google account you signed up with</li>
+                        <li>Try clearing app data and signing in again</li>
+                        <li>Contact <a href="mailto:support@mylandiq.com">support@mylandiq.com</a> if problems continue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3>Still have questions?</h3>
+            <p>We're here to help! Our support team typically responds within 24 hours.</p>
+            <a href="/contact/" class="btn">Contact Support</a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a> | <a href="/refund-policy/">Refunds</a> | <a href="/contact/">Contact</a></p>
+            <br>
+            <p>© 2026 MyLandIQ. All rights reserved.</p>
         </div>
     </div>
 
-    <footer>
-        <p>© 2026 MyLandIQ. All rights reserved.</p>
-        <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a></p>
-    </footer>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
