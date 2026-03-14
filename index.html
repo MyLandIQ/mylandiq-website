@@ -47,15 +47,16 @@
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #4ecca3;
             text-decoration: none;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: white;
+        .logo-img {
+            height: 110px;
+            width: auto;
+            object-fit: contain;
+            margin: -30px 0;
         }
 
         .nav-links {
@@ -463,6 +464,11 @@
                 display: block;
             }
 
+            .logo-img {
+                height: 80px;
+                margin: -20px 0;
+            }
+
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -498,20 +504,50 @@
             }
         }
     </style>
+
+    <!-- SEO: Open Graph + Twitter Cards + Canonical -->
+    <meta property="og:title" content="MyLandIQ - AI-Powered Property Investment Analysis | 4-Pillar HBU Score">
+    <meta property="og:description" content="Stop guessing. Start developing. Get instant AI-powered HBU analysis with 4-Pillar investment scoring, tier-aware recommendations, GPS location, and branded PDF reports.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mylandiq.com/">
+    <meta property="og:image" content="https://www.mylandiq.com/og-image.png">
+    <meta property="og:site_name" content="MyLandIQ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mylandiq">
+    <meta name="twitter:title" content="MyLandIQ - AI-Powered Property Investment Analysis | 4-Pillar HBU Score">
+    <meta name="twitter:description" content="Stop guessing. Start developing. Get instant AI-powered HBU analysis with 4-Pillar investment scoring, tier-aware recommendations, GPS location, and branded PDF reports.">
+    <meta name="twitter:image" content="https://www.mylandiq.com/og-image.png">
+    <link rel="canonical" href="https://www.mylandiq.com/">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "MyLandIQ",
+        "operatingSystem": "Android",
+        "applicationCategory": "FinanceApplication",
+        "description": "AI-powered property investment analysis with 4-Pillar HBU scoring, tier-aware recommendations for 200+ Indian cities, GPS location, and branded PDF reports.",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR", "description": "5 FREE credits on signup"},
+        "author": {"@type": "Organization", "name": "MyLandIQ", "url": "https://www.mylandiq.com"},
+        "sameAs": ["https://www.facebook.com/profile.php?id=61582203849606", "https://www.instagram.com/mylandiq", "https://www.linkedin.com/company/mylandiq/", "https://x.com/mylandiq"]
+    }</script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav>
-            <a href="/" class="logo">My<span>Land</span>IQ</a>
+            <a href="/" class="logo">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAABQCAIAAABAq9oAAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAxO0lEQVR4nN19d5xdVbXwWnvvc+65bWYyyUx6QjohRBJKCCWQBJIgARNSJFQBpVpQET5FeOpTnz4EEbGAgh0IvUgTUBALLfQWIAnpZSZT7tx6yt7r+2Ofc+65bWaCvvf7ft/+Qebec3Zdfa299r44Y+ZyzjmBIkIAICIiQiQAAFBKKQDQzxEx/EBApAgAAAkISFdHIlIADDHsB3UVIFJKAuh6oBBQ+Z8BgEABEBEoQEQkvzvSb5CQGAEokFLXR0ZEBMSqetDTKz+kqifVFfwhIpWrSt2H/dTRnxkoAACGBIAaQkTEsLYpAEZX0X9hpGGkysvAoM9wEuGay9CH2oEBguZVDaMfEKpbVoEjCln/c9gAITq9iiaNQYqR0rBS47b9V6iafNUo5P8/cD+DKYJAESgAIFKAPk4AiZTPLP2QGyISRfGBISB95iNN/ooo4E5EBRrlCgBIIQAQIAECKE2PKjKQAkAkRIWKCIBQEQAjDg3oPcKU5cmGU2r0qp8SypJBDweE3P8LRAhR0oMo2ojV0G1/hQEBEdP04MNdi68GyyjzRw2lICIChhCJoDACpgZrpvpgI0RfroYzqhq3MVOGT2olYflVVCr+W2i/bgn7/1eGEESIoNWNDwkgglBbAQQwZCE8tQJD3Q4AAMuUqzkGwMcZApECUtG+fCVDEUFBRACMfCJjISGHEoRQd4KE1bIXQ8XWXwm5PLooX5ZH6jRq20+3jYcMekaqj6EQxBFQ+A8JahlOoB4RVGAhAFG5amQqumUFS5GPlzpT109VpIlfAQgoOpUyYQORr43K/If+33IfWAlcAKBaKVKpI+tCc2DRB/1jYlAFBxqIalASUn91YYBE2lSJWEPBRCEykgoIHMK3lRXqzVSp6HtVQy0Y/Bs1gwgi2ET9Maq/ohUrnvcjnKEa7lgzkbKWbSQw973UkFGwNqzztO7EykUQKgICQG1cIIHPXuVeKj4QEKKWgVjxCsuqiELp7EtEAi3DQuDrZkQYsBUSamchfBV2jjVACyzDRhzTUDlFClbWrZAZgy+IqKoES/ldnelhYEKHcr2MN91Nvc609GaBsKGozkPSAK1gz4ixXttdP2ZStUbV7aMOgH6KUCW4gr9U9g3qWlx1hw79ivIU+2O1MljDqQ7KBPAVcz/vK1eEGA7WAMMNi0BAAGRAEHhXAIEHE+h7ABU1CAOc+V8ZAAKp0LjHimoUSE0iRCIWiiwCRNS63neSA+ShjxtCUBhYIrWgr89qIZuUkYpEqhHcw2p6ImEPUWzVJQ4MFFEddYRlsRyOywmASLGyuUZA9d3TmiE0ggX4dkWtzxFZPJQxFeGtSEW/a/RNPt0olGaIwIBU2cdQSgGyRiwCfkCkct51oFYt5fo31ephi6Ae9/yPWO21owzkVFEUWwBCG9MN1sgBVGAN6N4JCEAhMoJApyv0vTHdKyMAAKmtfz0Zpq04pRUSgQKGQEhEBAoZKCIt8VnAggiAIPWQAV8hACMk1NwOQZCpPr5DWmyEpLp2yj4UQt+ZwKqQSoOiPhL2o7NkRKAaWLSIKsrLAIHzXf2wgtIrvDQAjVUiVWuXVowbEZsBA1V1joGgL0vLmtH7K/3XbKQCB2gFpHBgrfPvMCZBBMajH2GtiMlWBx0IwTfgKCqfAnOMNKf4fFe2fUFJJGJBKEM/VwELKt+BQiyLIwJUoeEXiFwViFlfHFetP2Ig9AejfvRWTc1+4UuB4RUt1WI7eDzAiIPANoCITKwaMVCjusOiApUYtRxCxsAwhKDf6leRcDsRqZqQMmlh4pMIheILABAYhTqYQnUYaVupsWoVW/i5Rgl+xBLaLDWL+GhlQGcZhO/qVGx21KVQirgDhATIdOynksE0MiIqE4MwRNkeIQQChnqgwI4qi0wKEM10f4E1CqA1U6ClKsvghRvWwqWWgSp9xjqlwqyqFzGp6rwxY2EYsanTFss8IJAQK6CtwxCqijCrWBQBQJV9Vp8FgTS9k49ErXW1dMNg68v3QxD8mhXaChHC+CMBEAailvyJE1VpSgjf1kCnUdEkMmDlAem8Glv9lhpN3ainyheRXgX4yiLskKqMYIzCKvwn4L+ypCTy3S+K+NLkB3arFV7lwnznl8ohYP21CoaISCRrAVuHJ2oUbbC6/tRGtHI/qqMqsBHKAsD6yA3DE4i1rwf2qyCwA1lgrYULq6ZZzXZamatKLUEkAUj/67cO8aQICRgRQyAVtaN8o6lyiDAspQCVrqwi1ldgdyiqYSnSRklkzVHvNYKYOlRYBzqDsDg0fYYIU76IYo1Mg1CaV2tJQv+/2ib1psgg4n/omdQ3W7XAqvaX9egVotLXSUShjVArHKr2baIhxzI3UFgTy68qe6pn4FUpISjDs8aPrrLFK7DbAGlhk7I3Uq9axWL9NUb/DNQkiD9FiwjiP6qqasSqDmaGqKPwYRcSCAD8pAHmR4cY+LEivSaqgRGhLyXLAi4EHQIS8xnL3+YhgiCqWzn9Wue3yuQjqmOAUMQjZkGXVUDRsZJalcgCtANoa0ABBUbKQIalH6ohpo2oAZEWFX26iErCCiYaeuDIEImUAkmBG4vAgmSVKo0TcmcgClWNripPPSQFpfxlYvWrqilVPQ9TdBq1qrIMoq5eSLZVPNFAyf0/UQQgACqdfoThtihDQATXk8USITHLxLiJgpGUquRSyUXHQ0vwGNfiUxGBUgh684sIlAJC6i/c6T9UoSepI0blCuVIfEUnteCl2mr+Bn89i7za6wqkf3RECBiuirECMarKRNCYPzDwQypNZ73bipU7dIMqIpyovwxA4ghSUdFh7enYvGnm9FFsfDtriXPBSUkoOO6uXvuDXer5D7If7s47NiiIJ6xUKiFdCX6APZCZVEfm18VchOSVLx4bNNHkVMVSVf3U+sjRfqKOTsTQLXv0iDp4QtgIDx/d1f3oxY9W+IyPAAxVzuZN8fipcxMLZrARTQQgPQ+k8kOqwzA2bWR8xtjtz7y9/7QJa85cFjPNBx966u//WJeIxwGCJAi9oJptwfJXIqIguyGgdKWUP43KypUAbRCPrx2i0pGttSAaN+yvIDAK3ZY66j9ia9UZA6HxS90Yw63dSuOQhQ0REZG5fXk+a1z6+6dZZxyhWuMyV6RciZU89BRKAleS47KsvfUbd8wbP+GBB385efyYlnTqN7dec+7ZK/t6+zjrj6+r1sQCXRxhqTrLqDQWgIgasRRUG3VYFyjl4Rp3Eprj9UpoZNergiA4F5xzzusRRINW0cFRYeghRUoQA0RgiKrgpJYflvjMAsXI680zxnSiLAZ+LSpgVsx+Yyt/f+e3/3bDz376m+9+9+eekitXnnDDj/7jT48/3dWVMQ0uZR1QIiCPZJhKT/obiAF0tG3POSNk+o2UstZ2IKpeg98/ImM+w0kZdcn8hmG1cpMQqZEgdfhEc2LtKHWxGEgIkJ7qzmd1hWQiyQVXQIyh9gyJCGWNMcsYIPOTG5Bh4LKwYDg9D+FH5BhXeTu+/LCWixeW8kVwJOccpCIkSMQYF0IpkJITitZUNlOYNGGCaRi33/7QiOHthsWf/svzmZ6+2Qcf9MjDT5mxJISkTX4kAhE96WZzOU1WiNicTiFWhr9QKal6ejM6rIXA0k0Jxli1x+YHBSqAyBizbbuvL6fdv3RTWggz8M1rwVoZKUbfzYhiK7RhakulFi0/RADPUy3NTYsWzZdKGpy9vO6Nvd3dgguVs5XnASAKzuKmRoMCII6ISAVb2ZJQAWekFAIKw0ArBnpTTGsI31hH9HIFc87Eps/MdwsFpoBxrqQEy0CFzmtb8q9ulDt6seSByWNTR6mit2dvJ2c4fr/Rzzz9nDCs6QdMTKWTO3bsMkwjEOHaEfYFq+u6w4YNufQL5zGODLltO7/5zd3FYqlsSSFKj5Ip66JLzjYYJyAm+G233bdnd4dhGJHYVT3YIZZKpf2nTzlhyXyn5BjCuPveP+7Yuds0DaJouk49FRVBTD+2TL1SbYsiom3bY8eOuu0PN+snJ5+8ZvszOxLJeGLRYcaYdgZgb+3M/fVlZjBFgJyTJ5XjmdMnxA+ZKsa2saQFRcfbtjf/8vriW5sMIcjgYZ6NAAboKUqZifPmOcoFj5AzkIqnE3JTR88vn7Jf+YBsFzk3DEGKin9/m1lGTyZz790P//IX13zrWz9yXOfqqy9lDDdu2qIZJbCV/QUzxjxPDmtr/fKXzw8X1t3V9ctb1ja3pBVJAOCc5/PFc8/95JVf/XxY5/FH/7xt6/ZYLKYTpKpUTPCdOGf5fGH6/lO+9tVL9at/Pv/Cps2bTdMIoYmVIk4BMMbKRqCqjgBEseWLL/DVZAQ/fivdlVYRjDGlFJFCZJ6UxBk4XmrF0aljZxkMcn9+Pf/0y8AZAciSjel461dOaz7hUJGMk0caVog4pOhkn3hh90/uZT15lrRASUQUyJgqOPFTDucT2mWmiIKBlCIV917a0HXNg9BTEMkYxGOImM3mY6Yh4hZJ1dzU/P0f3NSXK37xC+cZpnj2r/88fvGxd6/92Wlnfr5QKLKIS6RVC+ccGXM9hyGXUnHOzvvMmrV3PeS5kjEEANeV7e2tF1xwupRSV1Ckz4Uwx3GUUkSgVXUIcSml9CQBcC45F0TkeVJKyTl3XY/5fnoFIyAi51wp5Tiu4xSVUogYi8ViMVOpciDYcRzNx6ZpAkA+X/Q8jzEWtywueBSvnDMpVT5f8DzPNE1kjAsOCAiMMSY4Z8i4EGi7MtOniDnZHIBijJHjsdam4ddckpg1ye3JQB6EFUdEAvLyJel6yVOO3m/a+O1X3ASd3WgKIBLgunxoOrlkFtkecqaUwnjMfWtrz3fuYi5hk0VSea7MZHoXLDxq+7Zd27fvjMVijKFpWdf/6Fc337I2lrS6ensP/fV91/70W9OnjP/bsy+mhwwhkqitTW3N+OQvGDJNd1MmT1y+4sTf/vqu1iEtANDX13veeZ8cPXqUlFIIwRgyYJzzeDw+fHir47qC876+nG3bWqQSUSqVTKeTnutywT/cvAMRheAAIASHOidkfC7p6c5wwcaOHjl23KhEIl4oFDdv3rx9e0cyneYMpfSAsdGjR5hCKFI7d3YUi6UZB0weNXpULp975833MplsOp3wPImIQrBcrmiaYtasGcPahmaz+ZdefKWQLzDUZyGAUDMkouCcG0qBQpRKMlBENPLrn0ocPNnd3S2aE86Wjt4/v6o6MzisOXncbHNcm+rsiR8wbsxVZ2370k80xQlZdKwjx/BRQ2SuyBgScCy53T9/TOYdSFlMekpBMpm4/CsXfPrTp55yygXbtu0UgkupGLKWVMIY29Z65apRhvHef92++OiVsZFt6Wlj1fYeZoqorFeklPaMA8eAiD57yacefvAJKZVUXuvQ5nPPWxNKAA1Xx7YNA9fefcvQIS2m4Lffcd/ll3+7qSkNALlc/rprv3nSSYs8z3vjzXcWL14tpYQg+FC3IKJScvmyxaefufqQg2e2tQ1DZACwd2/X3fc89J3vXO+6LgC0pBMPPfj79vY215VnnXXh6tWfWLnyE5ZlAcDGjR9+/Wvfeezxp1KpJCL29WXnL5h39dVXzJ59IGNcKvXSi+tuv+0ex3bNmAnaEw+PViAhR844cqayJevYj1nzDvS6eo3WpvwL7+746s2qK4OckZI9dz455tvnJ444wNvbG5+zf3z+7Nyj/xBNSUaK+IxRFGzpxpKWemGjWr8bkxZ5knPW25tZverjF114OiHYjt3d05vLFxhDUoo4Fjfvyu/qKo5pHvHdM4df9+m2H3+m5dRjyZPoQ5xAb54oSZ4kIgLSYodITZ44fsXKpflCKV/In7pm2bixo5TyHM/Vtj4RGKa5bfvO559b19KUTiQSS5cuaRvaKqVyXW/s6JFLlixIJOJNTelnnvlHsVAyDFHGSgNUeZ780pcu+fgJx7W3t2s8AcCwYUMvvujcG2/8ruc6nDPOMB6PW5aVTMZ+cuP3zzjjkxpPUspJkybc+qsfT5q8n207fbns3CPn3Hnnrw855CBfGDI2d+6ca37wLcZ1ihZ4npRKKiW1Lc8QuOBcGICQnD9bKgXAZU9uzw/WsmxRDG3mTSlj6BCWdXb/8B6ZyZEhPClTxxwEyBCAoWWaY9vI8wJ9i/a6jQw5RwDCbDZPRDHTlFJJKdvbh1z99S8sPXFhNptljBSgKjr5p14n25XIrEOn8NFDxeihGLeCDAAiUqQ0UylAREDHcR566HHGOBFdeOGZliVampsvvPAszVJ33HFvybEBgDHknFnx+F1r75dKudIbOaJt/oIjbdv2XG/RonnNzWkpZXd39wP3PZpMpRjjjYReGEkqFku33XGP53l//euzP//5rT+58RcfbNgAAI5jrzjl5IUL5mWzWaWU4zhEREqNGTumL9v32mtvFAoFzrljF5Op5OlnrCwU8qlk8pprvhWLmY7jMMbfeWf9gw8+umPnTsuKCyEgDK0BVXhnCCQVT1jWxNHM9iBhZl5+3/5wJ0snwfOQFLiKJS1v887Mund53KKSGx8/nDelSCqGcQOHJEESAgBjkC3ZH3aAwaSippbU+Z85DUh5UnLOlCfHjGr/2lcv+dH1/zFz5rRS0REMUQhv+15mS44IeYcVXWiy0OSkVLVGZ761YVnW2jseWP/eJgCYOGHs0hMXfPyE+WNHjwSA119/5/77HktYVgjlRDz+0kuvvrTuNcE4AKxccRICMISlJy0GAM75k08+u3HTVtM0lJQVw9X4qVLKVCr52ON/mTfvxOMWrrrkkss//4UvLpi/fOeu3UIYRHToYbNt20bGOGeIyLjYvHnrCYtXz5+/bOlJp3Z1dQnDJKIZMw5Qio6cO+djM2e4jm2a5i23/OGIIz5+5hmfnX/s8pfWvUJEUsmQuRGR+QEOLWIUGQKsmFKKMw7dOQZIlTleJD13617JORKxdBwTJkjFmMmYwZUiImKA4Lhou56CfK4oXe/yKy659tqrHacAAEpJRdjd0xu3rPM/c2ZHR2dPT69ULncl9xTjDBkAA4ZIoE+ukR/TA2TIGWM6uoWIO3d1/OSntyKiUurKr1/6f674nFKEiD/96a2ZTD50QkkRAuTzpdt+f4+WmfOOmTtm9Mgxo0cefvihemH33feoETOVIhkxzBgAI6ZTb0KM6U3KHdt2Dmlp/sG131q79tYHH7zv+uv/S9v0iNjcnOJ+QEjvuLK77rr/hedfbGlp/sc/XnrxxVcZ44iYiCc8z5s0eTwRMM6LxcKNN/5CEQxtG7J1244bbrg5BLrgAhlHfd5QkVIgXUVKKselos2QIWFsaJox7u/xBBu2yJiZiPuhQE+CVIgoSAH4B4GVIuSMEWI6EfvGVz//8rrXd+/ZO/vQmTt37gSAhBVDgEQqSUSFQn75KYuPmHvow/c/8YGdY5w7oDSewJWgCNDHChEEG7llMk+mEvfc/fAVl10ydtyoMaNHaVLasGHz/fc9MWfu7JC4POl5nmxqanryiWd37dozYkR7IhE/9tgjACCRsIjorTfX//3vLyQScbtk+04WAQAwxjjnjHGmDTEAHfUwOP/Zr25YsfLkKoZzXZcxw88QpnJSR9fe3ng8CUCWaZWKJZ87lStVKRYzEYFzke3rLhVLyUTCsW0rbu3asQeAAmQjaEvHT85CRZIQVdFRXX1i+n6y5BjTx1NLkrIFzTqADKSEeDwxezK6LpmitKdbZfLc4EwVHcg5fqjJUzwe7yP3rDNXnHP2KsGFIVipWJQKPaleevXt7Tt2v/XWe4hYKBbXnLrsC58/7+DZB+Q5qYQhpZREEsHtK5IrgTFF4B82CQKgFJxfjMfjmUzuV7fejoiO57mui4g33/y7fLEYi8VA514Hpw5iMXPXnj133vWARvxpp52yevXJGhB33HV/b6aP+dsCAVwAMplMb6Ynm8sWCvl8oZDL53O5fGdHx6mfXL5i5clSer29mauu+vayZaefeOIn33jjbcMwAIAUECkpVZgXzrjOk0MiGRqX2h/vyfRpoTpkaGtbe2tfptc0jFw2N2bcKAAkJUFv4xGA8jONKNisZRJKL60HQ3ilEh/eMuz8T7i2q7JFdDwoluye3uYV84ypoylfFDGz8MoHqlQCjkLmit6OLmNau/ZWWMKIHTh+w4YPAUBKBUQcWcyK7di9d/WqzxSKpXyh8OD9v0JkuVwBALo6elMHT1YxxDzpqLKztUMVbNaU0EeuASA0WMNQDAI0NaXuuOvBs887deJ+4wBg/fsb7rn3j6lUMozPIkPBuXZ1Y7HYbX+45/zPnJVMJg6bM1tDMpvNPfH4M6lUSovZUFcR0cGHHJRIpGLxmPStTTAM9torr884cH8pJefiuede+O53v4csmUonYpYVDdRSJMBYd68EkVmx9Ltvv6/HNQT/j29ccfGFX+rtzX1s5gGXffmz4W6ZJ12lJJFAAESGCEIIBsiSoufx55LL5/Fx7V5fvmnl0bw52XPf09SdM1qaWpcckj55rpctMMt0O3ryjz0vEhYpEiBV6b3t5qIZiADIZMkedfKcP1/+m81bdjS3JG3H8ZQi6TFSQhgxAwQXAOCUSkPGDN+8efvTL78y+oYLoOAx5EQKFBXf2AJK6bRlDBavuQoUEZIClECMs87Oruuuu+naa/6DiG788S97e7KGaUhP6tgEoJ8hL6WMJ2IbNm594qm/nrLs464niSBmiqf+/OzGjVubW9IAxBgjRKWUVIoQbrjhe1HgSiAOeOkXv75jVwfn3HHtw+YcfNllX9m2Y8cF5581beqkom3HDMNTnt4Mlcq/sCOM4ZLSQSW9FYfJVPLVV9946qlnFi9eWLSLixctfP75v2zYsHH//ScPaW1VygNEpXS6gn/SgkghIBJKBMa56s7u/v7vR11/KSYTsreQPO6Q9MKDoVDCuAkxU/XlyTQ8U3T+51pvR6dIxUkpwSzTeWULZEpgcFDkFW1z+micN/2yi78+dEI7M7jjejoewzhH9HTwxjD59p27b/nRb2jhDDGx3c7kGSAaBnXlvDc3Q8wgvQ+BSAAcEBGFITj37WlSynWc5qb0H//4xCsvv6mk2rFzd7o5nc/luRAs2PRSREpJROSCc8Fv+/09y5d9XL8lgrW334sc9CklRQoRGWNmvQ0zDggAiYR159p7L/viRfGENWxo7Npr/1O/LRZL8bgFAGZMx5ohHo+Hc5DSdwdN09QPhRCe5zHBL/vK1Q8/PHX8uDEA0NY+tK19KADs2dPR3t6mo2VCCB2tRtOgeEwReghKSikVS8Wdde/t/MqNI752jjlhJJYc8BSZXDmuKpSYZaDj9lxzZ+lPz6NlaTYVaAlne6f9wgZr0QzZVwSGpUyu7cLFL1/5W/f2dVde+aVhQ1tipsF1tg4S54xznkimv/b5q615B7aff0I+nxeIoBRPJrJPve519IqkpTyp5ToCAEPO0XXcDRs2ExECFQuOEAIZQ0WbN28DIGEYDFEIbtv2ho0fSikZMtd1uTAAsC+Ti1mxJ5969oXnX5479xAienf9B8/+7YW4ZUlPcsYYsmwuu3nLNulJzllEoQMC6MBgXy77zjvvrVlz/lev/MKBM/ZnDHft2nP9j2/eb/y4laecBACdnV2cCdux33pn/ajhwznnvb192rMWwty2beemTR8SwaZNW6T0UqnE1i07ln3i9Cuv/PL8+Uel08lcLvfnv/zt5pt+e91132lubgYg1/YMLhg33B3d+N52QLS3dSAhAKFHPJ30Xly/46JrhpwyP330LD6ymSVjrusxy7S37tp7+S3u+m3G1JHmqPb82xs5R5w4bQG6ypg8ctj3TndJaoIFg5uu6vjhg6O39sw6aMbI8SOWrzhx0ZLTPUd9bObUZScu+sUvb++bOWrEl5bbBkNPMQBiaBDb/eVb3A27MWaQUqSlXSjiGSBjOu1MKfIzYPwzKJVbvaiAgDEEQkUkuJg8efz7738waeJ+v/vtz0aOGs45++53r//e924c0toS3szAmN5aDBwUhDDMr/diHFcio2KuIDgbOXqkYRgdezr39vQ0NzcZjCsiT0mlCEAicgagd7SV0pcKMZ0qAL4PIhnjnImSXXIcZ8SI4U1N6Ww2u337TtOMJZMJHTuTEok8BaB0rhAAIyIFPAxnc06eK4s2S6cwYQ274tTkcYfKrj5E9F7eIDszicOne4o2nfcdISVOmHIsF9zryzdfutQ66TDKFlBwJGJCGKbZ9+fX9z70z/TeXALYnt0dwDgmY3JMW9vKec3Hz3RLDrlSIZAnWXMqd88/Mz96iDcnNXSIAEiFKhpA5/kpgvCgMUSP8VTtDykiwXmhUDzggMmPP762Y0/nsPZhlmVxxI7OrgXzl3X3ZDlnFTjW2o107mKYxAGh8QVAgjFFqmTbRBgzDWEYnpRaFyEo1GcadCqj75b6513J3/7QgQ8/hRCR620qz/M457GYQcE5XR2j1qf+CIgF2ftUlTKBCAxBKVkoUXN65DWXJA7fn+UdZhoM0XNdTMf3XH5T38P/EIyIlGQmz971nHXEdJGMkVTAmZLSLhSaFh3UdNzH8pt32zv2DpUKLIMPH5IY204Gd3IlREDOhCRpmWp3b2bts2AZfoxS1TkkyhjpE8FhnkgU0Bg5lgsAXIeCCoUzTlsZt6zx48fqap4nv/jlK7du2zlkSEtVZgBjPiA46JHC3F5E9CHo+RsfFiIoIs/zAg5EJP8aFQRCBgA8mB4pbWRX5xGDzgoVgpumQb600PKAyieVUMf/GlyGQgSSAIAn45Qr7rr8p8POWdp8/GGsKeECyVyx+PBzpXe2sGQcJ06eh4jIhMoW06uPbP7sEjeTo0CpklKAjJsCDaEpHaRUjoeKgDPQCaeKjObk3usezNz3T56Ooy/6oHZedfZVUVWxRSXBoeM4C+YfccYZp0ycOEERbdyw6Ve/Xvvss8+n02kviFtGR6gdMUR/hUVemzQBYayuJi0efEZglY2i8qDe/rLPzH6uGoW+H5S3GKrWyxlJqQoOb2vho4YywZ1de9XOLoyZzDB8VAExxhgpNew/17BZY2XO1im0EGRiUCBGfN9bTxQRpOLpuPvCxj1X/wENrqTUk8J6q2KcKRle+qMPb6uqOroEe6mECPl8nohSqQQR5PM5wzDi8aSUMnrgp262hSJSUkYPe0EDJEXBHMBdEYWXWfmQjaIqRA9iRVIiIioIDvRhcDgDQ0qQiKh5NJwMhZECAEAEBHI85bgAgIZgpqHHC01bUgDKcTt//qjsLZFgFQhHRKYVd/luMgAAqUgwr7Ov4ycPoh/uoypYREJb1JfJaiB6rufYDiIiMs64tgD8lTNEhFKpxILFJJPJpqYm15U9Pb2MccdxXcclIgYszGXTlnpI2oiYzxc810X0T1AiMua7ClpG8XCHmnGmM6Q8T3qeJ4RwXVfv1DDGGPOPeCAiZ4xVbFqSUiqT6QtxpsGkvzLGBON6VtraDrPNOGeu67qug4ie50Gw088ZI6WUlMwUIpVgSYuZRhjoCtQyEiiX4sJ7f2fvr54UsVjkEGH9rB8NR24a3T9/xP1wD8U4SE+fP6hNtVeKuBBnnb1CGKJUKu1/wKTD584u2UXb9rp7ej0pPU86jssFt21HKZg2dWIuV8Qgn8YuFptS8S998cLLv3Lx2WetEgYCQKGQ7830+hVKdm9vplAo6uGKxcLC+Ue1tw11XQ8QGMdSye7t6XE9T++V9Pb29vVlAMixne7unnyx5CrZ0to0fPiwvXv3nnX2J6dOnWLbbi6b78tkAUEpVSqWunsz2VweAkxIqYYNG/r5L5wvpUKGUspSye7t7XVslyGzi6We7m67VCwWiqecctLEieMzmV7OBSL0ZXNDhrS0DW3d29F5+mmrJowf77peNpfryWQkkVTY05PJ5nIAoIAUggoMnkjURypsSRQffbn05GtGc0oHdGvR5FOmVKIllX3wucJTr7HmBMjqYxdRPYEIhjAuuejs889f07m3a9Lk8bNmT+/q7p4yddyKlYvjcbO5pWnChDH5TH7KpPHT95941de/eOwxhwGC40lPKuRw+RWf2717z+9+u3b37s54IlYo5I+ed/jq1SczhpYVnzptwqpTTjr04I+VSjbn3Lbto48+fMSIdtd1GWOFQn7GjMlnnr5q9IgRhYKNqE5eevzi4+eD8kaOGLZyxYkHHTQ909u35tTll1x83uhRozZs2NjXlwVQJyxZePLSJeCpGBeTJ45fuvT4Qw85qFQsad+gWCzNm3f4mjWnHHjgtHyuMGzosANnTD9tzcopk/cr5gqTJu63atXJM2ZMy+Yybe2tbe1DJk2a4LpezLKmTp58ztmnffHSC8ePGf3eu+/29XZLxz322KMWL14okMUMXLli6TFHz0UAjHj0lb49IiMw4rHeX/zJW7+TpeIkFQYMGMTpSenEnXTcffXDvlueNBJxlA1OPunrFJAIVLopfv8Dj8Xj8dWrTty5Y1dvT++sj01fsWxJKVf63CXntA5pOu20U05edtzChUcWCzlASiZTpmm0t7UwVHPmHNzZ2XXrrbclU6muzq58X37p0gWzZk6LGfzT550+cuSw73//KjNmXHTx2dOnTyrZJcOIFYpFx3UZY/lcfs6cWed86jTHdS77ykWjhrddcvG5B86cftCsA2bOPGDUyOEmx9NPXT73sI/ZpaIVN5nwZs06MJWMX3DBWTNmTJsydeJFl5wzpHXItdd9JxGPn3Pu6QceOC2XyzuebBnSPHxk+zlnf/aEJccVCsW5Rxxy1dWXIsfLr/jc0NaWMaOHg5Lnnr3moJnTu7u6isXip88/Qwh26MGzTjjhWMcpxeMJIyYOP/wwy4yd/anVB8+eOXXKfgcfOvMLl14wbtyY4e3DTTOmpARAIAbERBS4epuIOFO5Utd/39P+/U9B2lKuh6zCfQFFzDJhV2/HNXeTK9EQKOtbB5FnSkppxaxr/vvHX7/qsj27d23cuHnJkgWGYTAhhg8f6jjysceeuummHxx1xImI+MrLr915132HzTn4nE+tfvedD3bu6iQlhSGamls+uerEDzZsmThp7PZtO7L54v5Dmlpb0088/vQvfvmzdDo5aeJ+b7/zvk6jKJUcx3FKtn3cwgW33vLbfz73pOs4F118dj6Xv+qq7xmmiMetxYuOteJxIhg7btSrr7zZ2bH3/fffJLWqffjQ4cPbrrji267r/eiG78w4cPpzz73429/9EhmbOHnCKy+/mclkVq/6xORJk4a1DTns8NnTp08pFIpPPPHXW2756ZTJEyZMGK+IkskUF8bUaVM8JTs69q5b9+pxC4+ZNHn8vfc+OmnyuO3bdqx/703OV4wcNWK/CeMu/8o3hRCGYbS1tx00c8a777yfL+SYKCOIVUGUAEgqjAlnw849P7iXKYSqHC0i4AxK3u7v3Sm3d6EhqF7aMwS3GfiIUsp13VjcLJXcm27+9XmfPqO1tXXTh1ssy+rt7n3i8b/lMpl5R8+97Q93rV69jJQ3bFjrzAOnbdq09Rvf/OFddz+ybt0bU6ZNXrH8pA/Wf7Bjxx7Htje8/6EhRPfezkceecIuOVY8hpgwY6bnSVJKeV4qlZo2beL+06ZMnTxx65atxxxz5Ngx+8+ePfPpvzwTT1iLFh17zDFHHHLIzNPPXPnKy28pomQyHbPM/Q+YlkwOSSSsvkzOtp2jjjrk2GMON4TZ2dkZi5mCtzY3NxvCJMC2YUMXLDzmhRfWDR854umn/37ySUtc21UKGEsT0dChw84594yX172l7dWYabYOaX78sac+fuJxXIh33l3f0jJk/+lTWtIjWlpaSqWikrRkyYKjj5575JFz3nnz/YcefPzc806fPGmyXXRC+7UmuKkISIEneTrh/fO93psfNxNxCJ0ERQDADdH1wwfcVzbxpAWVeAr3MYEFBxeJtDFaKtl//+eLyVRy29bd3/jmtT2Z3J/+9Le333nv2AVHZgvZsePGvvPue9/+9g85Z0bMevZvL5544mLOOWeCc96XzVx77c1zDp/1pcsuyheKDzzw6D13/zFXsI886kjGRVdX37vvbUgkUq+/8fbWLdsNbggh3njj3TmHzl6zZvmqVSc/9NDjxZLz2c9d+Nprbz72p6dvu/3eBccftWDhvI69PXesfeCkZSfs3L3nw83bX3ttvRVPHH3UMc8//+quXR2/+92dC4+bf/zx82+++VdbNm9/9dU3Lct6770PtmzeyhmOGjn6maf/fvNNv73/3keuv+5nW7du7830vv7Gm1Ys8eZb6999/4MH7n/kE8sXv//Bpg0bt3zw/ofZvlJHx46enp4333iXM3z2mX8wxo88au4//v7S3q7c735/14KF80448fhMtm/MuBHHL5r30EOPb9m8NWbFy3n1+008ys8L9/M1yi41cibzpeYLljSfNt/JZIExRcpIJzM/faR37V+NpqTmp+AGrrIRAYCASlWmrCpFjlOyrLgQPJ8vMoSYZeSyRS6Y58mYadiuk0gk89m+eCJZLBYF57G4pSeGDG3btkslwzBs20mlUgCUL+QFZ4DCjJme58StRLGYY4CGMJGBXbI9TyECMDRjsVw2awjmeSrdnCoWSq7rAkLMtEhJzphju1bc5MwolkqWZbquw7nwpHRsh4AMwzANw3GdRCLpODYiGIYpPXJdO5lMKpJKUT6fE0IoAMuK2yVbGMKxbYbMtp1EKqmkilvW+Z8+PZlKXXPNj3QmWrFYSiQSnpR668dxHQBgjCvpMQAitOJxnUjok/+ESUejjrH4eKrwKhHBK7mtX16WWnqY15szW5t7//B0z02PiFQieisJAJCOSUZSjmuVlnZstfmkFCmlGEcdgtLPlVK6jt5uUFL5qfWg0JfExBiTUiICotagpPMy9CsKjvT4Do0OCSrFuX/zoZSSMeYfY5IeQyRAxrhSkkjp3FtE8BRGNhsVgGKMSyUZ+jYzEnBESYp8d5CFxlc4GS1edM4kQxo5ckRnZ2exWETBKYg/6TCo3ioJm+tcV1JK5zuokKsQw2BKGVWBCYcoyQWv/RtnNC0+OLP22a7rH8CYEbKgrkVEgMQiHnj0g8+/kUhK5BWFbn/0Q00Pdby7evYL1O2nXkEAQFL6evAgXlE+uayqrmitvPIGEP3zo3WuoqgZSCeDATmOYxiCMRa9KaR+IT8mVJ4WAI6fMJcFiiuIHlUWhuB41BJPLZrd98BzQiJxDH66QPUDjn5AGf3Wf4W6p+QHHGIfKvi7zUEkfOCG4R0b6AfKa5egY0BYSQfEUB/KrzlCUtGqcalCVTmwXTFdRJBSFos8EScsx5wIpOb+aCyrn3XWteP7qUNE/V/c96+jKpxELfAati0fve4XVX7HQUS9jL9GkxgAVcK/DTqYFiICUHiXN4ZKjQNPJ0gRkPSJChGJAwFARRpC/+OVFwAQ7oM0iImoOlCI9tIvQzeKs9Qt+1AVKmE6wNW1GNSpRNIAreoXEeWkwBYgjSQsX8kHAEBBZkhZtehxffOx3qIGwBzV8NDg21bUqUJMuPX1/1MRdZ/qhNDQSlQRrESr6Sxa9DPlGgA6uDiwn0nUtO3vVHZUxlbtQjXqcJ9KuNIg3erfVGpuftvX4qMq8tsR5Y4o+PUBbdnW02QUrb8P066nFCMQH8DWqPt2nyReP6Vik+Pf0mOdjj9KEf2IIJ9mw1tNGlSrKuWAReRZ5fsKWzz6dZCCq7ZhvQnsQ6lioDouYYNWgx+pPzIcXCtBGPw0WGUl0qcNIk8bWXf1kR3KjwqbpyqaOFhXCaq1aR2qqtvDYLitrOIjzsqAAMUaBA9Y3/9ARDVZJwNMDAABBCP/YH5YAsnmizyseN4QYfUf+rZsHTgOnvYHidG6SBqMVKyYlZ71IGe2jyU0gQZfP1pVICjlB0rA9+/QX2f5avvAxBsMYwEAEAuYqT5GGuAplLLly6iCH3IoC+BBUslgkOR3HRzdjc5jwKL2UTt+tHvdKy6Zkwih5R8+DXRGHSLrXzGQf0RH1ntZv0k4YvAq/EDlDvtt+xGKLyEqdfA+lX+XFTP4IoiI66zRADsRzYVQqQb69TrDjyr4GurdqNwLIytRBgpH9PkJg3sdEQfgp49WGl3a+D9eopGO/qoFiiNi4mtjXV+zWIeN+kmcq3oYOeNUZo5GlatAVNfwiwrbfVVs/ZN86DP9r5d/iTBEpcUZbjthP0iqtRb9xhWGZKNp7RuUqrLsBq6vx26sSKiBmfdv9Mz6m10Aqvpvw0nVu4tOQKATgrkOHkNVb6EWPdHATwT3tW37kav7QolhiAGrBUO1K1bT9H9L9/QziqqsUF1TfFQFsE/+n1/6l6KI1X32rx3rTkhL3jCRs2Ku/d2a6VeDfV8VBkbyIG3OhkPUexd9VhEDrCvoGwOrobYfPEdGnldb5PtEQxUWfXhOI6KWsDE/RTupqtA/Asj/mTXfTh3kPHWn9bqrfhiKOO0Y1AnXDg5Get+szhbLv+Lbhs/rugR1oUb98AqVz23VsXPq1K5Mbx9IKkaF7AB9V3Y6eNRGpyEoYrk2KlHiCmmiAYgo/F2ERp0F5B5KqQodH5wqqPal6uMJIPrbcr5vEbi0GEwx9OXrl8AfIAACGuSPyiP4Pww4SMKsuGJ6IAMVtFVcOWcBg1A7ES1CEflfZ4ABRT0FxxT7n2XN6A0rU2VN9E8KDziNCDUMguPql1rt+u8ojdYrMPoDfTWtAKAKGrUgooqjiTgIftJfo9suH8V/qh4G/Z9ZCrvqTy3VAcegfu+rPIF9RNK/9IOBqEBbgPWwWI2kfu2CAec8QJ19NSKqCiJC5P5Z2BeUf+Tyv+KHVZT/C1L2ZZnAqq5YAAAAAElFTkSuQmCC" alt="MyLandIQ - Next-Gen Location Analytics" class="logo-img">
+            </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#pricing">Pricing</a>
                 <a href="/faq/">FAQ</a>
-                <a href="/glossary/">Glossary</a> 
+                <a href="/glossary/">Glossary</a>
+                <a href="/blog/">Blog</a>
                 <a href="/contact/">Contact</a>
-                <a href="https://play.google.com/store/apps/details?id=com.mylandiq.app" class="nav-cta" target="_blank">Download App</a>
+                <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="nav-cta" target="_blank">Download App</a>
             </div>
             <button class="mobile-menu-btn">☰</button>
         </nav>
@@ -521,11 +557,11 @@
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">🎁 Get 5 FREE Credits on Signup!</span>
-            <h1>Transform Land into <span>Smart Investments</span></h1>
-            <p>Get instant AI-powered property analysis with development recommendations, cost estimates, and ROI projections. Make informed real estate decisions in seconds.</p>
-            <p style="color: #4ecca3; font-weight: 600; font-size: 1.1em; margin-bottom: 30px;">✨ No credit card required • Try 5 analyses FREE</p>
+            <h1>Stop Guessing. <span>Start Developing.</span></h1>
+            <p>What should you build on your land? Get instant 4-Pillar investment scoring with tier-aware HBU recommendations, regional cost estimates, and ROI projections — in under 30 seconds.</p>
+            <p style="color: #4ecca3; font-weight: 600; font-size: 1.1em; margin-bottom: 30px;">✨ No credit card required • 5 FREE analyses • Calibrated for India's Tier 1–5 cities</p>
             <div class="hero-buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.mylandiq.app" class="btn-primary" target="_blank">
+                <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn-primary" target="_blank">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
                     Get on Google Play
                 </a>
@@ -539,44 +575,62 @@
         <div class="features-container">
             <div class="section-header">
                 <h2>Why Choose MyLandIQ?</h2>
-                <p>Powerful AI analysis meets intuitive design for smarter property decisions</p>
+                <p>The only property intelligence app calibrated for the real India — from Metro cities to Tier 5 villages</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Powered Analysis</h3>
-                    <p>Advanced AI analyzes location, market trends, and property characteristics to generate comprehensive Highest & Best Use recommendations.</p>
-                </div>
-
-                <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Financial Projections</h3>
-                    <p>Get detailed cost estimates, revenue projections, and ROI calculations tailored to your property's specific location and size.</p>
+                    <h3>4-Pillar Investment Score</h3>
+                    <p>Every analysis rates your property across Legal, Physical, Demand, and Financial pillars — giving you a transparent, data-backed score out of 100. No guesswork.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Regional Intelligence</h3>
-                    <p>Automatic detection of location tier and region-specific pricing for India, USA, UK, UAE, and other major markets.</p>
+                    <div class="feature-icon">🏙️</div>
+                    <h3>Tier-Aware Intelligence</h3>
+                    <p>Automatically classifies your city (Tier 1 Metro to Tier 5 Rural) and adjusts construction costs, land rates, and project recommendations. A warehouse in Hoshiarpur costs differently than in Mumbai.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💱</div>
+                    <h3>Multi-Currency Auto-Detection</h3>
+                    <p>Supports 25+ countries. Enter an address in India, USA, UK, or UAE — MyLandIQ automatically detects the currency and formats amounts in ₹ Lakh/Crore, $M, £K, or AED.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>GPS Location Detection</h3>
+                    <p>Tap "Use My Current Location" to auto-detect your GPS coordinates and reverse-geocode the address. Perfect for on-site analysis during property visits.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Branded PDF Reports</h3>
+                    <p>Export professional PDF reports with the 4-Pillar score breakdown, financial projections, recommendations, and risk assessment. Share with partners or banks.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Instant Results</h3>
-                    <p>Get comprehensive analysis in just 15-30 seconds. No waiting for appraisals or consultant reports.</p>
+                    <p>Get comprehensive HBU analysis in under 30 seconds. The tier-aware engine runs entirely on-device for speed and privacy. No waiting for consultants.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile-First Design</h3>
-                    <p>Analyze properties on-the-go with our intuitive Android app. Perfect for site visits and quick decisions.</p>
+                    <div class="feature-icon">🔍</div>
+                    <h3>Plot-Size Filtering</h3>
+                    <p>Projects are pre-filtered by your actual plot size. A 270 sqyd plot won't show warehousing (needs 500+). Smart defaults, zero noise in recommendations.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3>PDF Reports</h3>
-                    <p>Export professional PDF reports to share with partners, investors, or keep for your records.</p>
+                    <div class="feature-icon">🔴</div>
+                    <h3>The Red Alert System</h3>
+                    <p>If the math doesn't work, we tell you. Negative ROI triggers a Financial Alert — we'd rather lose a user's interest than let them lose their savings.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">☁️</div>
+                    <h3>Cloud Sync &amp; History</h3>
+                    <p>Every analysis is saved to your Firebase account. Access your full history across devices, re-view past reports, and track how properties evolve over time.</p>
                 </div>
             </div>
         </div>
@@ -587,31 +641,39 @@
         <div class="features-container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>Three simple steps to unlock property insights</p>
+                <p>Four steps from address to actionable insights</p>
             </div>
 
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3>Enter Property Details</h3>
-                        <p>Input the property address and land area. Our AI automatically detects the location tier and appropriate regional pricing.</p>
+                        <h3>Enter Property Details or Tap GPS</h3>
+                        <p>Type your property address and land area — or tap "Use My Current Location" for auto-detection. Select your unit (sq ft, sq yd, marla, kanal, bigha). Currency is detected automatically from the address.</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>AI Analyzes Your Property</h3>
-                        <p>Our advanced AI processes location data, market conditions, and property characteristics to generate tailored recommendations.</p>
+                        <h3>Tier-Aware Engine Analyzes</h3>
+                        <p>MyLandIQ identifies the city from a database of 200+ Indian cities across 5 tiers, detects area character (Commercial, Residential, Industrial), and runs the 4-Pillar scoring algorithm — all on-device in milliseconds.</p>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3>Get Actionable Insights</h3>
-                        <p>Receive detailed analysis including best use cases, development costs, revenue projections, and investment recommendations.</p>
+                        <h3>Get Your 4-Pillar Investment Score</h3>
+                        <p>See your pillar breakdown (Legal, Physical, Demand, Financial) with individual scores and a weighted overall score out of 100. Financial Alerts warn you about negative ROI before you invest a single rupee.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Download PDF &amp; Take Action</h3>
+                        <p>Get top 5 ranked project recommendations with cost estimates (in Lakh/Crore), revenue projections, and timelines. Export a branded PDF report to share with partners, banks, or keep for your records.</p>
                     </div>
                 </div>
             </div>
@@ -667,14 +729,16 @@
                     <p>Maximum savings for investors</p>
                 </div>
             </div>
+
+            <p style="text-align: center; color: #666; margin-top: 20px; font-size: 0.9em;">Prices shown in INR. The app supports USD, GBP, AED, and 20+ other currencies.</p>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="cta">
-        <h2>Ready to Analyze Your Property?</h2>
-        <p>Download MyLandIQ today and transform how you evaluate real estate opportunities.</p>
-        <a href="https://play.google.com/store/apps/details?id=com.mylandiq.app" class="btn-primary" target="_blank">
+        <h2>Your Land Deserves More Than a Guess.</h2>
+        <p>Download MyLandIQ today and get your first 5 analyses FREE. See exactly what your property is worth — with data-backed 4-Pillar scoring in under 30 seconds.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn-primary" target="_blank">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
             Download on Google Play
         </a>
@@ -686,7 +750,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>MyLandIQ</h4>
-                    <p style="color: #666; line-height: 1.8;">AI-powered real estate analysis for smarter property investment decisions.</p>
+                    <p style="color: #666; line-height: 1.8;">AI-powered property investment analysis with 4-Pillar HBU scoring. Calibrated for India's Tier 1–5 cities.</p>
                 </div>
 
                 <div class="footer-section">
@@ -694,7 +758,9 @@
                     <a href="#features">Features</a>
                     <a href="#pricing">Pricing</a>
                     <a href="/faq/">FAQ</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.mylandiq.app" target="_blank">Download App</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/glossary/">Glossary</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" target="_blank">Download App</a>
                 </div>
 
                 <div class="footer-section">
@@ -712,10 +778,35 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 MyLandIQ. All rights reserved.</p>
+                <p>
+            <p style="margin-top: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" style="margin: 0 8px;">Facebook</a> |
+                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" style="margin: 0 8px;">LinkedIn</a> |
+                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">X (Twitter)</a>
+            </p>
+            <p style="font-size: 0.85em; margin-top: 8px;">GSTIN: 03AAAPO7488G1ZL</p>
+            © 2026 MyLandIQ. All rights reserved.</p>
                 <p>Made with ❤️ in India</p>
             </div>
         </div>
     </footer>
+
+    <!-- Firebase + Google Analytics 4 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",
+            authDomain: "mylandiq.firebaseapp.com",
+            projectId: "mylandiq",
+            storageBucket: "mylandiq.firebasestorage.app",
+            messagingSenderId: "94371578438",
+            appId: "1:94371578438:web:5f1ce21e63afb1da5b4047",
+            measurementId: "G-WMEWG2WCZG"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>
