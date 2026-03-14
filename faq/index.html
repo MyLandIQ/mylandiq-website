@@ -238,6 +238,34 @@
             }
         }
     </style>
+
+    <!-- SEO: Open Graph + Twitter Cards + Canonical -->
+    <meta property="og:title" content="FAQ - MyLandIQ | Frequently Asked Questions About Property Analysis">
+    <meta property="og:description" content="Answers about MyLandIQ's 4-Pillar scoring, credits, pricing, tier-aware analysis, GPS location, PDF reports, privacy, and 25+ supported countries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mylandiq.com/faq/">
+    <meta property="og:image" content="https://www.mylandiq.com/og-image.png">
+    <meta property="og:site_name" content="MyLandIQ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@mylandiq">
+    <meta name="twitter:title" content="FAQ - MyLandIQ | Frequently Asked Questions About Property Analysis">
+    <meta name="twitter:description" content="Answers about MyLandIQ's 4-Pillar scoring, credits, pricing, tier-aware analysis, GPS location, PDF reports, privacy, and 25+ supported countries.">
+    <meta name="twitter:image" content="https://www.mylandiq.com/og-image.png">
+    <link rel="canonical" href="https://www.mylandiq.com/faq/">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "What is MyLandIQ?", "acceptedAnswer": {"@type": "Answer", "text": "MyLandIQ is an AI-powered mobile app that analyzes land using a 4-Pillar scoring system (Legal 30%, Physical 25%, Demand 25%, Financial 20%) to provide tier-aware development recommendations, cost estimates, and ROI projections for 200+ Indian cities."}},
+            {"@type": "Question", "name": "How do credits work?", "acceptedAnswer": {"@type": "Answer", "text": "Each analysis uses 1 credit. New users get 5 FREE credits. Credits never expire. Paid packs: 5 credits at INR 1,338 to 50 credits at INR 8,031 with up to 40% savings."}},
+            {"@type": "Question", "name": "How accurate is the analysis?", "acceptedAnswer": {"@type": "Answer", "text": "MyLandIQ uses a tier-aware engine calibrated for 200+ Indian cities across 5 tiers with region-specific construction costs and land rates. The 4-Pillar score provides transparent, math-backed results."}},
+            {"@type": "Question", "name": "Which countries are supported?", "acceptedAnswer": {"@type": "Answer", "text": "25+ countries with automatic currency detection: India (INR with Lakh/Crore), USA (USD), UK (GBP), UAE (AED), Canada, Australia, Singapore and more."}},
+            {"@type": "Question", "name": "Can I get a refund?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Unused purchased credits are refundable within 1 year. Free signup credits are non-refundable. Technical failures auto-restore credits."}},
+            {"@type": "Question", "name": "Is my data secure?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. TLS 1.3 encryption, data stored on Google Firebase servers. Analysis runs on-device via the tier-aware pipeline. We do not sell data."}}
+        ]
+    }</script>
 </head>
 <body>
     <div class="container">
@@ -450,7 +478,15 @@
         <div class="footer">
             <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a> | <a href="/refund-policy/">Refunds</a> | <a href="/contact/">Contact</a></p>
             <br>
-            <p>© 2026 MyLandIQ. All rights reserved.</p>
+            <p>
+            <p style="margin-top: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" style="margin: 0 8px;">Facebook</a> |
+                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" style="margin: 0 8px;">LinkedIn</a> |
+                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">X (Twitter)</a>
+            </p>
+            <p style="font-size: 0.85em; margin-top: 8px;">GSTIN: 03AAAPO7488G1ZL</p>
+            © 2026 MyLandIQ. All rights reserved.</p>
         </div>
     </div>
 
@@ -462,6 +498,23 @@
                 item.classList.toggle('active');
             });
         });
+    </script>
+
+    <!-- Firebase + Google Analytics 4 -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",
+            authDomain: "mylandiq.firebaseapp.com",
+            projectId: "mylandiq",
+            storageBucket: "mylandiq.firebasestorage.app",
+            messagingSenderId: "94371578438",
+            appId: "1:94371578438:web:5f1ce21e63afb1da5b4047",
+            measurementId: "G-WMEWG2WCZG"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
     </script>
 </body>
 </html>
