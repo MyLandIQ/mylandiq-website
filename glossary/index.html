@@ -161,16 +161,16 @@
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
             text-decoration: none;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--accent-green);
+        .logo-img {
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            margin: -50px 0;
         }
 
         nav ul {
@@ -663,6 +663,11 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .logo-img {
+                height: 120px;
+                margin: -35px 0;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -782,7 +787,7 @@
     <!-- Header -->
     <header id="main-content">
         <div class="header-container">
-            <a href="/" class="logo">My<span>Land</span>IQ</a>
+            <a href="/" class="logo"><picture><source srcset="/assets/logo-header.webp" type="image/webp"><img src="/assets/logo-header.png" alt="MyLandIQ - Next-Gen Location Analytics" class="logo-img" width="571" height="320"></picture></a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <nav>
                 <ul id="navMenu">
