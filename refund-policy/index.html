@@ -278,24 +278,30 @@
                 display: none;
             }
         }
+    
+        /* Accessibility: Focus indicator for keyboard navigation */
+        *:focus-visible {
+            outline: 3px solid #4ecca3;
+            outline-offset: 2px;
+        }
     </style>
-
-    <!-- SEO: Open Graph + Twitter Cards + Canonical -->
-    <meta property="og:title" content="Refund Policy - MyLandIQ | 1-Year Guarantee">
-    <meta property="og:description" content="Unused credits refundable within 1 year. Credits never expire.">
+    <!-- SEO -->
+    <meta property="og:title" content="Refund Policy - MyLandIQ">
+    <meta property="og:description" content="1-year refund guarantee. Credits never expire.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mylandiq.com/refund-policy/">
     <meta property="og:image" content="https://www.mylandiq.com/og-image.png">
     <meta property="og:site_name" content="MyLandIQ">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@mylandiq">
-    <meta name="twitter:title" content="Refund Policy - MyLandIQ | 1-Year Guarantee">
-    <meta name="twitter:description" content="Unused credits refundable within 1 year. Credits never expire.">
+    <meta name="twitter:title" content="Refund Policy - MyLandIQ">
+    <meta name="twitter:description" content="1-year refund guarantee. Credits never expire.">
     <meta name="twitter:image" content="https://www.mylandiq.com/og-image.png">
     <link rel="canonical" href="https://www.mylandiq.com/refund-policy/">
     <meta name="robots" content="index, follow">
 </head>
 <body>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" tabindex="0">Skip to main content</a>
     <div class="container">
         <div class="header" id="top">
             <a href="/" class="home-link">← Back to Home</a>
@@ -522,12 +528,11 @@
             <br>
             <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a> | <a href="/contact/">Contact</a></p>
             <br>
-            <p>
-            <p style="margin-top: 15px;">
-                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" style="margin: 0 8px;">Facebook</a> |
-                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">Instagram</a> |
-                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" style="margin: 0 8px;">LinkedIn</a> |
-                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" style="margin: 0 8px;">X (Twitter)</a>
+            <p>            <p style="margin-top: 15px;">
+                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" aria-label="Facebook page" style="margin: 0 8px;">Facebook</a> |
+                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" aria-label="Instagram page" style="margin: 0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" aria-label="LinkedIn page" style="margin: 0 8px;">LinkedIn</a> |
+                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" aria-label="X Twitter page" style="margin: 0 8px;">X (Twitter)</a>
             </p>
             <p style="font-size: 0.85em; margin-top: 8px;">GSTIN: 03AAAPO7488G1ZL</p>
             © 2026 MyLandIQ. All rights reserved.</p>
@@ -535,7 +540,6 @@
     </div>
 
     <a href="#top" class="back-to-top" title="Back to top">↑</a>
-
     <!-- Firebase + Google Analytics 4 -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
