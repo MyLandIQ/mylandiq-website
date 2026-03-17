@@ -113,10 +113,17 @@
                 gap: 1rem;
             }
         }
+    
+        /* Accessibility: Focus indicator for keyboard navigation */
+        *:focus-visible {
+            outline: 3px solid #4ecca3;
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
-    <div class="error-container">
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" tabindex="0">Skip to main content</a>
+    <div class="error-container" id="main-content">
         <div class="illustration">🏠</div>
         <div class="error-code">404</div>
         <h1>Page Not Found</h1>
