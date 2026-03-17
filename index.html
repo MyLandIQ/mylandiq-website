@@ -47,18 +47,8 @@
             align-items: center;
         }
 
-        .logo {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: 160px;
-            width: auto;
-            object-fit: contain;
-            margin: -50px 0;
-        }
+        .logo { text-decoration: none; display: flex; align-items: center; }
+        .logo-img { height: 160px; width: auto; object-fit: contain; margin: -50px 0; }
 
         .nav-links {
             display: flex;
@@ -461,14 +451,8 @@
                 display: none;
             }
 
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .logo-img {
-                height: 120px;
-                margin: -35px 0;
-            }
+            .mobile-menu-btn { display: block; }
+            .logo-img { height: 120px; margin: -35px 0; }
 
             .hero h1 {
                 font-size: 2.2rem;
@@ -504,11 +488,12 @@
                 text-align: center;
             }
         }
+    
+        *:focus-visible { outline: 3px solid #4ecca3; outline-offset: 2px; }
     </style>
-
-    <!-- SEO: Open Graph + Twitter Cards + Canonical -->
+    <!-- SEO -->
     <meta property="og:title" content="MyLandIQ - AI-Powered Property Investment Analysis">
-    <meta property="og:description" content="4-Pillar investment scoring with tier-aware HBU recommendations for 200+ Indian cities. 5 FREE analyses.">
+    <meta property="og:description" content="4-Pillar investment scoring for 200+ Indian cities. 5 FREE analyses.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mylandiq.com/">
     <meta property="og:image" content="https://www.mylandiq.com/og-image.png">
@@ -516,15 +501,16 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@mylandiq">
     <meta name="twitter:title" content="MyLandIQ - Stop Guessing. Start Developing.">
-    <meta name="twitter:description" content="AI-powered 4-Pillar property scoring for India. 5 FREE analyses.">
+    <meta name="twitter:description" content="AI 4-Pillar property scoring for India. 5 FREE analyses.">
     <meta name="twitter:image" content="https://www.mylandiq.com/og-image.png">
     <link rel="canonical" href="https://www.mylandiq.com/">
     <meta name="robots" content="index, follow">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"MyLandIQ","operatingSystem":"Android","applicationCategory":"FinanceApplication","description":"AI-powered property investment analysis with 4-Pillar HBU scoring for 200+ Indian cities.","offers":{"@type":"Offer","price":"0","priceCurrency":"INR","description":"5 FREE credits on signup"},"author":{"@type":"Organization","name":"MyLandIQ","url":"https://www.mylandiq.com"},"sameAs":["https://www.facebook.com/profile.php?id=61582203849606","https://www.instagram.com/mylandiq","https://www.linkedin.com/company/mylandiq/","https://x.com/mylandiq"]}
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"MyLandIQ","operatingSystem":"Android","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"sameAs":["https://www.facebook.com/profile.php?id=61582203849606","https://www.instagram.com/mylandiq","https://www.linkedin.com/company/mylandiq/","https://x.com/mylandiq"]}
     </script>
 </head>
 <body>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" tabindex="0">Skip to main content</a>
     <!-- Header -->
     <header>
         <nav>
@@ -538,12 +524,12 @@
                 <a href="/contact/">Contact</a>
                 <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="nav-cta" target="_blank">Download App</a>
             </div>
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" aria-label="Open navigation menu">☰</button>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-content">
             <span class="hero-badge">🎁 Get 5 FREE Credits on Signup!</span>
             <h1>Stop Guessing. <span>Start Developing.</span></h1>
@@ -551,7 +537,7 @@
             <p style="color: #4ecca3; font-weight: 600; font-size: 1.1em; margin-bottom: 30px;">✨ No credit card required • 5 FREE analyses • Calibrated for India's Tier 1–5 cities</p>
             <div class="hero-buttons">
                 <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn-primary" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
                     Get on Google Play
                 </a>
                 <a href="#features" class="btn-secondary">Learn More</a>
@@ -564,62 +550,44 @@
         <div class="features-container">
             <div class="section-header">
                 <h2>Why Choose MyLandIQ?</h2>
-                <p>The only property intelligence app calibrated for the real India — from Metro cities to Tier 5 villages</p>
+                <p>Powerful AI analysis meets intuitive design for smarter property decisions</p>
             </div>
 
             <div class="features-grid">
                 <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-Powered Analysis</h3>
+                    <p>Advanced AI analyzes location, market trends, and property characteristics to generate comprehensive Highest & Best Use recommendations.</p>
+                </div>
+
+                <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>4-Pillar Investment Score</h3>
-                    <p>Every analysis rates your property across Legal, Physical, Demand, and Financial pillars — giving you a transparent, data-backed score out of 100.</p>
+                    <h3>Financial Projections</h3>
+                    <p>Get detailed cost estimates, revenue projections, and ROI calculations tailored to your property's specific location and size.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🏙️</div>
-                    <h3>Tier-Aware Intelligence</h3>
-                    <p>Classifies your city (Tier 1 Metro to Tier 5 Rural) and adjusts construction costs, land rates, and project recommendations accordingly.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💱</div>
-                    <h3>Multi-Currency Auto-Detection</h3>
-                    <p>Supports 25+ countries. Automatically detects currency and formats amounts in ₹ Lakh/Crore, $M, £K, or AED.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📍</div>
-                    <h3>GPS Location Detection</h3>
-                    <p>Tap "Use My Current Location" to auto-detect GPS coordinates and reverse-geocode the address. Perfect for on-site visits.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3>Branded PDF Reports</h3>
-                    <p>Export professional PDF reports with the 4-Pillar score breakdown, financial projections, and risk assessment.</p>
+                    <div class="feature-icon">🌍</div>
+                    <h3>Regional Intelligence</h3>
+                    <p>Automatic detection of location tier and region-specific pricing for India, USA, UK, UAE, and other major markets.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <h3>Instant Results</h3>
-                    <p>Get comprehensive HBU analysis in under 30 seconds. The tier-aware engine runs on-device for speed and privacy.</p>
+                    <p>Get comprehensive analysis in just 15-30 seconds. No waiting for appraisals or consultant reports.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Plot-Size Filtering</h3>
-                    <p>Projects pre-filtered by your actual plot size. A 270 sqyd plot won't show warehousing (needs 500+). Zero noise.</p>
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Analyze properties on-the-go with our intuitive Android app. Perfect for site visits and quick decisions.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🔴</div>
-                    <h3>The Red Alert System</h3>
-                    <p>Negative ROI triggers a Financial Alert — we'd rather lose a user's interest than let them lose their savings.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">☁️</div>
-                    <h3>Cloud Sync &amp; History</h3>
-                    <p>Every analysis saved to your Firebase account. Access your full history across devices anytime.</p>
+                    <div class="feature-icon">📄</div>
+                    <h3>PDF Reports</h3>
+                    <p>Export professional PDF reports to share with partners, investors, or keep for your records.</p>
                 </div>
             </div>
         </div>
@@ -630,7 +598,7 @@
         <div class="features-container">
             <div class="section-header">
                 <h2>How It Works</h2>
-                <p>Four steps from address to actionable insights</p>
+                <p>Three simple steps to unlock property insights</p>
             </div>
 
             <div class="steps">
@@ -716,9 +684,9 @@
     <!-- CTA -->
     <section class="cta">
         <h2>Your Land Deserves More Than a Guess.</h2>
-        <p>Download MyLandIQ today and get your first 5 analyses FREE. See exactly what your property is worth — with data-backed 4-Pillar scoring in under 30 seconds.</p>
+        <p>Download MyLandIQ today — get 5 FREE analyses with data-backed 4-Pillar scoring in under 30 seconds.</p>
         <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="btn-primary" target="_blank">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
             Download on Google Play
         </a>
     </section>
@@ -728,12 +696,12 @@
         <div class="footer-content">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>MyLandIQ</h4>
+                    <h3 style="font-size:1.1rem;">MyLandIQ</h3>
                     <p style="color: #666; line-height: 1.8;">AI-powered property investment analysis with 4-Pillar HBU scoring. Calibrated for India's Tier 1–5 cities.</p>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Product</h4>
+                    <h3 style="font-size:1.1rem;">Product</h3>
                     <a href="#features">Features</a>
                     <a href="#pricing">Pricing</a>
                     <a href="/faq/">FAQ</a>
@@ -743,49 +711,38 @@
                 </div>
 
                 <div class="footer-section">
-                    <h4>Legal</h4>
+                    <h3 style="font-size:1.1rem;">Legal</h3>
                     <a href="/privacy-policy/">Privacy Policy</a>
                     <a href="/terms/">Terms of Service</a>
                     <a href="/refund-policy/">Refund Policy</a>
                 </div>
 
                 <div class="footer-section">
-                    <h4>Contact</h4>
+                    <h3 style="font-size:1.1rem;">Contact</h3>
                     <a href="mailto:support@mylandiq.com">support@mylandiq.com</a>
                     <a href="/contact/">Contact Form</a>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>
-            <p style="margin-top: 15px;">
-                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" style="color:#888;margin:0 8px;">Facebook</a> |
-                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" style="color:#888;margin:0 8px;">Instagram</a> |
-                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" style="color:#888;margin:0 8px;">LinkedIn</a> |
-                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" style="color:#888;margin:0 8px;">X (Twitter)</a>
+                <p>            <p style="margin-top:15px;">
+                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" aria-label="Facebook page" style="color:#999;margin:0 8px;">Facebook</a> |
+                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" aria-label="Instagram page" style="color:#999;margin:0 8px;">Instagram</a> |
+                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" aria-label="LinkedIn page" style="color:#999;margin:0 8px;">LinkedIn</a> |
+                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" aria-label="X Twitter page" style="color:#999;margin:0 8px;">X (Twitter)</a>
             </p>
-            <p style="font-size: 0.85em; margin-top: 8px; color:#888;">GSTIN: 03AAAPO7488G1ZL</p>
+            <p style="font-size:0.85em;margin-top:8px;color:#999;">GSTIN: 03AAAPO7488G1ZL</p>
             © 2026 MyLandIQ. All rights reserved.</p>
                 <p>Made with ❤️ in India</p>
             </div>
         </div>
     </footer>
-
-    <!-- Firebase + Google Analytics 4 -->
+    <!-- Firebase + GA4 -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",
-            authDomain: "mylandiq.firebaseapp.com",
-            projectId: "mylandiq",
-            storageBucket: "mylandiq.firebasestorage.app",
-            messagingSenderId: "94371578438",
-            appId: "1:94371578438:web:5f1ce21e63afb1da5b4047",
-            measurementId: "G-WMEWG2WCZG"
-        };
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+        const fc = { apiKey:"AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE", authDomain:"mylandiq.firebaseapp.com", projectId:"mylandiq", storageBucket:"mylandiq.firebasestorage.app", messagingSenderId:"94371578438", appId:"1:94371578438:web:5f1ce21e63afb1da5b4047", measurementId:"G-WMEWG2WCZG" };
+        const app = initializeApp(fc); const analytics = getAnalytics(app);
     </script>
 </body>
 </html>
