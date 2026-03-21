@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>MyLandIQ Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #1e293b;
+            --teal: #115e59;
+            --teal-accent: #4ecca3;
+            --teal-light: #d1fae5;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --blue: #3b82f6;
+            --blue-light: #eff6ff;
+            --green: #10b981;
+            --green-light: #f0fdf4;
+            --red: #ef4444;
+            --red-light: #fef2f2;
+            --yellow: #f59e0b;
+            --yellow-light: #fffbeb;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--text); min-height: 100vh; }
+
+        /* ═══ LOGIN SCREEN ═══ */
+        .login-screen { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, var(--navy), var(--teal)); }
+        .login-box { background: var(--white); padding: 48px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 400px; width: 90%; text-align: center; }
+        .login-box h1 { font-size: 1.8rem; color: var(--navy); margin-bottom: 8px; }
+        .login-box p { color: var(--gray-500); margin-bottom: 24px; }
+        .login-btn { background: linear-gradient(135deg, var(--teal-accent), #38b28a); color: var(--navy); border: none; padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; transition: all 0.3s; }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(78,204,163,0.3); }
+        .login-error { color: var(--red); margin-top: 12px; font-size: 0.9rem; display: none; }
+
+        /* ═══ SIDEBAR ═══ */
+        .app-layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 240px; background: var(--navy); color: var(--white); padding: 24px 0; position: fixed; height: 100vh; overflow-y: auto; z-index: 100; }
+        .sidebar-brand { padding: 0 24px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px; }
+        .sidebar-brand h2 { font-size: 1.3rem; color: var(--teal-accent); }
+        .sidebar-brand span { font-size: 0.75rem; color: var(--gray-400); }
+        .nav-item { display: flex; align-items: center; padding: 12px 24px; color: var(--gray-400); cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 500; }
+        .nav-item:hover, .nav-item.active { color: var(--white); background: rgba(78,204,163,0.1); border-right: 3px solid var(--teal-accent); }
+        .nav-item svg { width: 20px; height: 20px; margin-right: 12px; fill: currentColor; }
+        .nav-section { padding: 16px 24px 8px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-500); }
+        .sidebar-footer { position: absolute; bottom: 0; width: 100%; padding: 16px 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .sidebar-footer .user-email { font-size: 0.8rem; color: var(--gray-400); overflow: hidden; text-overflow: ellipsis; }
+        .logout-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: var(--gray-400); padding: 8px 16px; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 8px; font-size: 0.85rem; }
+        .logout-btn:hover { border-color: var(--red); color: var(--red); }
+
+        /* ═══ MAIN CONTENT ═══ */
+        .main { margin-left: 240px; padding: 24px 32px; flex: 1; }
+        .page-header { margin-bottom: 24px; }
+        .page-header h1 { font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+        .page-header p { color: var(--gray-500); font-size: 0.9rem; margin-top: 4px; }
+
+        /* ═══ METRIC CARDS ═══ */
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .metric-card { background: var(--white); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--gray-200); }
+        .metric-card .label { font-size: 0.8rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .metric-card .value { font-size: 1.8rem; font-weight: 700; color: var(--navy); }
+        .metric-card .change { font-size: 0.8rem; margin-top: 4px; }
+        .metric-card .change.up { color: var(--green); }
+        .metric-card .change.down { color: var(--red); }
+        .metric-card.highlight { background: linear-gradient(135deg, var(--teal), var(--navy)); color: var(--white); border: none; }
+        .metric-card.highlight .label { color: rgba(255,255,255,0.7); }
+        .metric-card.highlight .value { color: var(--teal-accent); }
+
+        /* ═══ CARDS & TABLES ═══ */
+        .card { background: var(--white); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); border: 1px solid var(--gray-200); margin-bottom: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .card-header h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+        .card-actions { display: flex; gap: 8px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { text-align: left; padding: 10px 12px; background: var(--gray-50); color: var(--gray-600); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid var(--gray-200); }
+        td { padding: 12px; border-bottom: 1px solid var(--gray-100); color: var(--text); }
+        tr:hover td { background: var(--gray-50); }
+
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .badge-export { background: var(--blue-light); color: var(--blue); }
+        .badge-domestic { background: var(--green-light); color: var(--green); }
+        .badge-zero { background: var(--yellow-light); color: var(--yellow); }
+
+        /* ═══ BUTTONS ═══ */
+        .btn { padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; cursor: pointer; border: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .btn-primary { background: var(--teal); color: var(--white); }
+        .btn-primary:hover { background: var(--navy); }
+        .btn-outline { background: transparent; border: 1px solid var(--gray-300); color: var(--gray-600); }
+        .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+        .btn-export { background: var(--green); color: var(--white); }
+        .btn-export:hover { background: #059669; }
+
+        /* ═══ FILTERS ═══ */
+        .filter-bar { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+        .filter-bar select, .filter-bar input { padding: 8px 12px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 0.85rem; background: var(--white); color: var(--text); }
+        .filter-bar select:focus, .filter-bar input:focus { outline: none; border-color: var(--teal-accent); box-shadow: 0 0 0 3px rgba(78,204,163,0.2); }
+
+        /* ═══ TAB PAGES ═══ */
+        .tab-page { display: none; }
+        .tab-page.active { display: block; }
+
+        /* ═══ LOADING ═══ */
+        .loading { text-align: center; padding: 60px; color: var(--gray-400); }
+        .spinner { width: 40px; height: 40px; border: 3px solid var(--gray-200); border-top-color: var(--teal-accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ═══ EMPTY STATE ═══ */
+        .empty-state { text-align: center; padding: 48px; color: var(--gray-400); }
+        .empty-state h3 { color: var(--gray-500); margin-bottom: 8px; }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media (max-width: 768px) {
+            .sidebar { width: 60px; }
+            .sidebar-brand h2, .sidebar-brand span, .nav-item span, .nav-section, .sidebar-footer .user-email { display: none; }
+            .nav-item { justify-content: center; padding: 14px; }
+            .nav-item svg { margin: 0; }
+            .main { margin-left: 60px; padding: 16px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Hidden by default */
+        .app-layout { display: none; }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- LOGIN SCREEN -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-box">
+        <h1>MyLandIQ</h1>
+        <p>Admin Dashboard</p>
+        <button class="login-btn" onclick="signIn()">Sign in with Google</button>
+        <p class="login-error" id="loginError"></p>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- DASHBOARD APP -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="app-layout" id="appLayout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <h2>MyLandIQ</h2>
+            <span>Admin Dashboard</span>
+        </div>
+
+        <div class="nav-section">Main</div>
+        <div class="nav-item active" onclick="showTab('overview')">
+            <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            <span>Overview</span>
+        </div>
+        <div class="nav-item" onclick="showTab('invoices')">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+            <span>Invoices</span>
+        </div>
+        <div class="nav-item" onclick="showTab('transactions')">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.87c0 1.87-1.38 2.93-3.12 3.17z"/></svg>
+            <span>Transactions</span>
+        </div>
+
+        <div class="nav-section">Compliance</div>
+        <div class="nav-item" onclick="showTab('gstexport')">
+            <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            <span>GST Export</span>
+        </div>
+        <div class="nav-item" onclick="showTab('consent')">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span>Consent Log</span>
+        </div>
+        <div class="nav-item" onclick="showTab('users')">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            <span>Users</span>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="user-email" id="adminEmail">—</div>
+            <button class="logout-btn" onclick="signOutUser()">Sign Out</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- ═══ OVERVIEW TAB ═══ -->
+        <div class="tab-page active" id="tab-overview">
+            <div class="page-header">
+                <h1>Dashboard Overview</h1>
+                <p>Real-time business metrics for MyLandIQ</p>
+            </div>
+
+            <div class="metrics-grid" id="metricsGrid">
+                <div class="metric-card highlight">
+                    <div class="label">Total Revenue</div>
+                    <div class="value" id="metricRevenue">—</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Total Users</div>
+                    <div class="value" id="metricUsers">—</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Total Invoices</div>
+                    <div class="value" id="metricInvoices">—</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Export Invoices</div>
+                    <div class="value" id="metricExports">—</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Credits Sold</div>
+                    <div class="value" id="metricCredits">—</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">GST Collected</div>
+                    <div class="value" id="metricGST">—</div>
+                </div>
+            </div>
+
+            <!-- Recent Invoices -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Recent Invoices</h3>
+                    <button class="btn btn-outline" onclick="showTab('invoices')">View All</button>
+                </div>
+                <div id="recentInvoicesTable">
+                    <div class="loading"><div class="spinner"></div>Loading...</div>
+                </div>
+            </div>
+
+            <!-- Revenue by Country -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Revenue by Country</h3>
+                </div>
+                <div id="countryBreakdown">
+                    <div class="loading"><div class="spinner"></div>Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ INVOICES TAB ═══ -->
+        <div class="tab-page" id="tab-invoices">
+            <div class="page-header">
+                <h1>All Invoices</h1>
+                <p>Complete invoice history with filters</p>
+            </div>
+
+            <div class="filter-bar">
+                <select id="filterType" onchange="filterInvoices()">
+                    <option value="all">All Types</option>
+                    <option value="export">Export Only</option>
+                    <option value="domestic">Domestic Only</option>
+                </select>
+                <select id="filterMonth" onchange="filterInvoices()">
+                    <option value="all">All Months</option>
+                </select>
+                <input type="search" id="filterSearch" placeholder="Search invoice #, email..." oninput="filterInvoices()">
+                <button class="btn btn-export" onclick="exportInvoicesCSV()">📥 Export CSV</button>
+            </div>
+
+            <div class="card">
+                <div id="allInvoicesTable">
+                    <div class="loading"><div class="spinner"></div>Loading invoices...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ TRANSACTIONS TAB ═══ -->
+        <div class="tab-page" id="tab-transactions">
+            <div class="page-header">
+                <h1>Transactions</h1>
+                <p>All credit purchase transactions</p>
+            </div>
+            <div class="card">
+                <div id="transactionsTable">
+                    <div class="loading"><div class="spinner"></div>Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ GST EXPORT TAB ═══ -->
+        <div class="tab-page" id="tab-gstexport">
+            <div class="page-header">
+                <h1>GST Monthly Export</h1>
+                <p>Generate CSV reports for your CA's GSTR-1/3B filing</p>
+            </div>
+
+            <div class="card">
+                <div class="filter-bar">
+                    <select id="gstMonth"></select>
+                    <select id="gstYear"></select>
+                    <button class="btn btn-export" onclick="generateGSTReport()">📥 Download GST Report (CSV)</button>
+                </div>
+
+                <div style="margin-top:16px">
+                    <h3 style="font-size:0.95rem;color:var(--gray-600);margin-bottom:12px">Report includes:</h3>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.85rem;color:var(--gray-500)">
+                        <div>✅ Invoice Number & Date</div>
+                        <div>✅ Buyer Name, Email, Country</div>
+                        <div>✅ Buyer GSTIN (if Indian B2B)</div>
+                        <div>✅ SAC Code (998315)</div>
+                        <div>✅ Taxable Value</div>
+                        <div>✅ CGST, SGST, IGST amounts</div>
+                        <div>✅ Total Amount</div>
+                        <div>✅ Tax Treatment category</div>
+                        <div>✅ Export / Domestic flag</div>
+                        <div>✅ LUT ARN (for exports)</div>
+                        <div>✅ GSTR-1 Category (B2B/B2C/EXP)</div>
+                        <div>✅ Google Play Order ID</div>
+                    </div>
+                </div>
+
+                <div id="gstPreview" style="margin-top:20px"></div>
+            </div>
+        </div>
+
+        <!-- ═══ CONSENT LOG TAB ═══ -->
+        <div class="tab-page" id="tab-consent">
+            <div class="page-header">
+                <h1>Consent Log</h1>
+                <p>FEMA clickwrap acceptance records (6-year retention)</p>
+            </div>
+            <div class="card">
+                <div id="consentTable">
+                    <div class="loading"><div class="spinner"></div>Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ USERS TAB ═══ -->
+        <div class="tab-page" id="tab-users">
+            <div class="page-header">
+                <h1>Users</h1>
+                <p>Registered user accounts</p>
+            </div>
+            <div class="card">
+                <div id="usersTable">
+                    <div class="loading"><div class="spinner"></div>Loading...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FIREBASE SDK + APP LOGIC -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+    import { getFirestore, collection, getDocs, query, orderBy, where, limit } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",
+        authDomain: "mylandiq.firebaseapp.com",
+        projectId: "mylandiq",
+        storageBucket: "mylandiq.firebasestorage.app",
+        messagingSenderId: "94371578438",
+        appId: "1:94371578438:web:5f1ce21e63afb1da5b4047",
+        measurementId: "G-WMEWG2WCZG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const provider = new GoogleAuthProvider();
+
+    // Admin email whitelist
+    const ADMIN_EMAILS = ["rajiv@mylandiq.com", "admin@mylandiq.com", "ohri.rajiv.ai@gmail.com"];
+
+    // ═══ Global data cache ═══
+    let allInvoices = [];
+    let allTransactions = [];
+    let allUsers = [];
+    let allConsent = [];
+
+    // ═══ AUTH ═══
+    window.signIn = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
+            if (!ADMIN_EMAILS.includes(result.user.email)) {
+                await signOut(auth);
+                document.getElementById('loginError').textContent = 'Access denied. Admin accounts only.';
+                document.getElementById('loginError').style.display = 'block';
+            }
+        } catch (e) {
+            document.getElementById('loginError').textContent = e.message;
+            document.getElementById('loginError').style.display = 'block';
+        }
+    };
+
+    window.signOutUser = async () => {
+        await signOut(auth);
+        location.reload();
+    };
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user && ADMIN_EMAILS.includes(user.email)) {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('appLayout').style.display = 'flex';
+            document.getElementById('adminEmail').textContent = user.email;
+            await loadAllData();
+        } else {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('appLayout').style.display = 'none';
+        }
+    });
+
+    // ═══ DATA LOADING ═══
+    async function loadAllData() {
+        try {
+            // Load invoices
+            const invSnap = await getDocs(query(collection(db, 'invoices'), orderBy('createdAt', 'desc')));
+            allInvoices = invSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+            // Load transactions
+            const txnSnap = await getDocs(query(collection(db, 'transactions'), orderBy('createdAt', 'desc')));
+            allTransactions = txnSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+            // Load users
+            const userSnap = await getDocs(collection(db, 'users'));
+            allUsers = userSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+            // Load consent logs
+            const consentSnap = await getDocs(query(collection(db, 'consent_log'), orderBy('acceptedAtMillis', 'desc')));
+            allConsent = consentSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+            renderOverview();
+            renderInvoices();
+            renderTransactions();
+            renderConsent();
+            renderUsers();
+            populateFilters();
+        } catch (e) {
+            console.error('Data load error:', e);
+        }
+    }
+
+    // ═══ OVERVIEW ═══
+    function renderOverview() {
+        const totalRevenue = allInvoices.reduce((s, i) => s + (i.totalAmount || 0), 0);
+        const totalCredits = allInvoices.reduce((s, i) => s + (i.totalCreditsDelivered || 0), 0);
+        const totalTax = allInvoices.reduce((s, i) => s + (i.totalTax || 0), 0);
+        const exportCount = allInvoices.filter(i => i.isExport).length;
+
+        document.getElementById('metricRevenue').textContent = '₹' + formatCompact(totalRevenue);
+        document.getElementById('metricUsers').textContent = allUsers.length;
+        document.getElementById('metricInvoices').textContent = allInvoices.length;
+        document.getElementById('metricExports').textContent = exportCount;
+        document.getElementById('metricCredits').textContent = totalCredits;
+        document.getElementById('metricGST').textContent = '₹' + formatCompact(totalTax);
+
+        // Recent invoices (top 5)
+        const recent = allInvoices.slice(0, 5);
+        document.getElementById('recentInvoicesTable').innerHTML = recent.length ? renderInvoiceTable(recent) : '<div class="empty-state"><h3>No invoices yet</h3></div>';
+
+        // Country breakdown
+        const countries = {};
+        allInvoices.forEach(i => {
+            const c = i.buyer_country || 'Unknown';
+            if (!countries[c]) countries[c] = { count: 0, revenue: 0 };
+            countries[c].count++;
+            countries[c].revenue += i.totalAmount || 0;
+        });
+
+        const sorted = Object.entries(countries).sort((a, b) => b[1].revenue - a[1].revenue);
+        let countryHtml = '<table><thead><tr><th>Country</th><th>Invoices</th><th>Revenue</th><th>Type</th></tr></thead><tbody>';
+        sorted.forEach(([code, data]) => {
+            const flag = code === 'IN' ? '🇮🇳' : '🌍';
+            const type = code === 'IN' ? '<span class="badge badge-domestic">Domestic</span>' : '<span class="badge badge-export">Export</span>';
+            countryHtml += `<tr><td>${flag} ${getCountryName(code)}</td><td>${data.count}</td><td>₹${formatCompact(data.revenue)}</td><td>${type}</td></tr>`;
+        });
+        countryHtml += '</tbody></table>';
+        document.getElementById('countryBreakdown').innerHTML = sorted.length ? countryHtml : '<div class="empty-state"><h3>No data yet</h3></div>';
+    }
+
+    // ═══ INVOICES ═══
+    function renderInvoices() {
+        document.getElementById('allInvoicesTable').innerHTML = allInvoices.length ? renderInvoiceTable(allInvoices) : '<div class="empty-state"><h3>No invoices</h3></div>';
+    }
+
+    function renderInvoiceTable(invoices) {
+        let html = '<table><thead><tr><th>Invoice #</th><th>Date</th><th>Buyer</th><th>Country</th><th>Taxable</th><th>Tax</th><th>Total</th><th>Type</th><th>Credits</th></tr></thead><tbody>';
+        invoices.forEach(i => {
+            const isExp = i.isExport;
+            const badge = isExp ? '<span class="badge badge-export">Export</span>' : '<span class="badge badge-domestic">Domestic</span>';
+            const taxStr = (i.totalTax || 0) > 0 ? '₹' + (i.totalTax||0).toFixed(0) : '<span class="badge badge-zero">Zero</span>';
+            const bonus = (i.bonusCredits || 0) > 0 ? ` +${i.bonusCredits}` : '';
+            html += `<tr>
+                <td><strong>${i.invoiceNumber || '—'}</strong></td>
+                <td>${formatDate(i.invoiceDate)}</td>
+                <td>${i.buyer_email || '—'}</td>
+                <td>${i.buyer_country || '—'}</td>
+                <td>₹${(i.taxableValue||0).toFixed(0)}</td>
+                <td>${taxStr}</td>
+                <td><strong>₹${(i.totalAmount||0).toFixed(0)}</strong></td>
+                <td>${badge}</td>
+                <td>${i.creditsPurchased||0}${bonus}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+        return html;
+    }
+
+    window.filterInvoices = () => {
+        const type = document.getElementById('filterType').value;
+        const month = document.getElementById('filterMonth').value;
+        const search = document.getElementById('filterSearch').value.toLowerCase();
+
+        let filtered = [...allInvoices];
+        if (type === 'export') filtered = filtered.filter(i => i.isExport);
+        if (type === 'domestic') filtered = filtered.filter(i => !i.isExport);
+        if (month !== 'all') {
+            filtered = filtered.filter(i => {
+                const d = i.invoiceDate || '';
+                return d.startsWith(month);
+            });
+        }
+        if (search) {
+            filtered = filtered.filter(i =>
+                (i.invoiceNumber||'').toLowerCase().includes(search) ||
+                (i.buyer_email||'').toLowerCase().includes(search) ||
+                (i.buyer_country||'').toLowerCase().includes(search)
+            );
+        }
+
+        document.getElementById('allInvoicesTable').innerHTML = filtered.length ? renderInvoiceTable(filtered) : '<div class="empty-state"><h3>No matching invoices</h3></div>';
+    };
+
+    // ═══ TRANSACTIONS ═══
+    function renderTransactions() {
+        if (!allTransactions.length) {
+            document.getElementById('transactionsTable').innerHTML = '<div class="empty-state"><h3>No transactions</h3></div>';
+            return;
+        }
+        let html = '<table><thead><tr><th>Date</th><th>User</th><th>Product</th><th>Credits</th><th>Amount</th><th>Country</th><th>Tax Treatment</th><th>Google Order</th></tr></thead><tbody>';
+        allTransactions.forEach(t => {
+            html += `<tr>
+                <td>${formatTimestamp(t.createdAt)}</td>
+                <td>${t.userEmail||'—'}</td>
+                <td>${t.productId||'—'}</td>
+                <td>${t.totalCreditsDelivered||t.creditsPurchased||'—'}</td>
+                <td>₹${(t.amountInr||0).toFixed(0)}</td>
+                <td>${t.buyerCountry||'—'}</td>
+                <td>${t.taxTreatment||'—'}</td>
+                <td style="font-size:0.75rem">${(t.googlePlayOrderId||'—').substring(0,20)}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+        document.getElementById('transactionsTable').innerHTML = html;
+    }
+
+    // ═══ CONSENT LOG ═══
+    function renderConsent() {
+        if (!allConsent.length) {
+            document.getElementById('consentTable').innerHTML = '<div class="empty-state"><h3>No consent records</h3></div>';
+            return;
+        }
+        let html = '<table><thead><tr><th>Date</th><th>User Email</th><th>Terms Ver</th><th>Privacy Ver</th><th>Method</th><th>Device</th><th>IP</th><th>Retention Until</th></tr></thead><tbody>';
+        allConsent.forEach(c => {
+            html += `<tr>
+                <td>${c.acceptedAt||'—'}</td>
+                <td>${c.userEmail||'—'}</td>
+                <td>v${c.termsVersion||'—'}</td>
+                <td>v${c.privacyVersion||'—'}</td>
+                <td>${c.method||'—'}</td>
+                <td style="font-size:0.75rem">${c.deviceModel||'—'}</td>
+                <td>${c.ipAddress||'—'}</td>
+                <td>${c.retentionUntil||'—'}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+        document.getElementById('consentTable').innerHTML = html;
+    }
+
+    // ═══ USERS ═══
+    function renderUsers() {
+        if (!allUsers.length) {
+            document.getElementById('usersTable').innerHTML = '<div class="empty-state"><h3>No users</h3></div>';
+            return;
+        }
+        let html = '<table><thead><tr><th>Email</th><th>Name</th><th>Role</th><th>Created</th></tr></thead><tbody>';
+        allUsers.forEach(u => {
+            html += `<tr>
+                <td>${u.email||u.id}</td>
+                <td>${u.displayName||u.name||'—'}</td>
+                <td>${u.role||'user'}</td>
+                <td>${u.createdAt ? formatTimestamp(u.createdAt) : '—'}</td>
+            </tr>`;
+        });
+        html += '</tbody></table>';
+        document.getElementById('usersTable').innerHTML = html;
+    }
+
+    // ═══ GST EXPORT ═══
+    window.generateGSTReport = () => {
+        const month = parseInt(document.getElementById('gstMonth').value);
+        const year = parseInt(document.getElementById('gstYear').value);
+
+        const startDate = new Date(year, month - 1, 1);
+        const endDate = new Date(year, month, 1);
+
+        const filtered = allInvoices.filter(i => {
+            const ts = i.createdAt || 0;
+            return ts >= startDate.getTime() && ts < endDate.getTime();
+        });
+
+        if (!filtered.length) {
+            document.getElementById('gstPreview').innerHTML = '<p style="color:var(--gray-500)">No invoices found for this month.</p>';
+            return;
+        }
+
+        // Generate CSV
+        const headers = [
+            'Invoice Number','Invoice Date','Financial Year','Buyer Name','Buyer Email',
+            'Buyer Country','Buyer GSTIN','Buyer State','SAC Code','Item Description',
+            'Taxable Value (INR)','CGST (INR)','SGST (INR)','IGST (INR)','Total Tax (INR)',
+            'Total Amount (INR)','Tax Treatment','GSTR-1 Category','Is Export','LUT ARN',
+            'IEC Code','Credits Purchased','Bonus Credits','Total Credits',
+            'Google Play Order ID','Status'
+        ];
+
+        let csv = headers.join(',') + '\n';
+
+        filtered.forEach(i => {
+            const row = [
+                `"${i.invoiceNumber||''}"`, `"${formatDate(i.invoiceDate)}"`, `"${i.financialYear||''}"`,
+                `"${i.buyer_name||''}"`, `"${i.buyer_email||''}"`,
+                `"${i.buyer_country||''}"`, `"${i.buyer_gstin||''}"`, `"${i.buyer_state||''}"`,
+                `"${i.item_sacCode||'998315'}"`, `"${(i.item_description||'').replace(/"/g,'""')}"`,
+                (i.taxableValue||0).toFixed(2), (i.cgst||0).toFixed(2),
+                (i.sgst||0).toFixed(2), (i.igst||0).toFixed(2), (i.totalTax||0).toFixed(2),
+                (i.totalAmount||0).toFixed(2),
+                `"${i.taxTreatmentLabel||i.taxTreatment||''}"`, `"${i.gstr1Category||''}"`,
+                i.isExport ? 'Yes' : 'No', `"${i.lutArn||''}"`, `"${i.iecCode||''}"`,
+                i.creditsPurchased||0, i.bonusCredits||0, i.totalCreditsDelivered||0,
+                `"${i.googlePlayOrderId||''}"`, `"${i.status||''}"`
+            ];
+            csv += row.join(',') + '\n';
+        });
+
+        // Summary rows
+        const totalTaxable = filtered.reduce((s,i) => s + (i.taxableValue||0), 0);
+        const totalCGST = filtered.reduce((s,i) => s + (i.cgst||0), 0);
+        const totalSGST = filtered.reduce((s,i) => s + (i.sgst||0), 0);
+        const totalIGST = filtered.reduce((s,i) => s + (i.igst||0), 0);
+        const totalTax = filtered.reduce((s,i) => s + (i.totalTax||0), 0);
+        const totalAmt = filtered.reduce((s,i) => s + (i.totalAmount||0), 0);
+
+        csv += '\n';
+        csv += `"TOTALS","","","","","","","","","",${totalTaxable.toFixed(2)},${totalCGST.toFixed(2)},${totalSGST.toFixed(2)},${totalIGST.toFixed(2)},${totalTax.toFixed(2)},${totalAmt.toFixed(2)}\n`;
+
+        // Download
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `MyLandIQ_GST_${year}_${String(month).padStart(2,'0')}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+
+        // Preview
+        document.getElementById('gstPreview').innerHTML = `
+            <div style="background:var(--green-light);padding:16px;border-radius:8px;border-left:4px solid var(--green)">
+                <strong>✅ Report downloaded</strong> — ${filtered.length} invoices for ${getMonthName(month)} ${year}<br>
+                <span style="font-size:0.85rem;color:var(--gray-600)">Total: ₹${totalAmt.toFixed(2)} | Tax: ₹${totalTax.toFixed(2)} | Exports: ${filtered.filter(i=>i.isExport).length}</span>
+            </div>`;
+    };
+
+    window.exportInvoicesCSV = () => {
+        if (!allInvoices.length) return;
+        // Reuse GST export logic with all invoices
+        const now = new Date();
+        document.getElementById('gstMonth').value = now.getMonth() + 1;
+        document.getElementById('gstYear').value = now.getFullYear();
+        // Export all invoices as CSV
+        let csv = 'Invoice #,Date,Buyer,Country,Taxable,Tax,Total,Type,Credits\n';
+        allInvoices.forEach(i => {
+            csv += `"${i.invoiceNumber||''}","${formatDate(i.invoiceDate)}","${i.buyer_email||''}","${i.buyer_country||''}",${(i.taxableValue||0).toFixed(2)},${(i.totalTax||0).toFixed(2)},${(i.totalAmount||0).toFixed(2)},"${i.isExport?'Export':'Domestic'}",${i.totalCreditsDelivered||0}\n`;
+        });
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'MyLandIQ_All_Invoices.csv';
+        a.click();
+        URL.revokeObjectURL(url);
+    };
+
+    // ═══ NAVIGATION ═══
+    window.showTab = (tab) => {
+        document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+        event.currentTarget.classList.add('active');
+    };
+
+    // ═══ HELPERS ═══
+    function populateFilters() {
+        // Month filter for invoices
+        const months = new Set();
+        allInvoices.forEach(i => {
+            if (i.invoiceDate) months.add(i.invoiceDate.substring(0, 7));
+        });
+        const monthSelect = document.getElementById('filterMonth');
+        monthSelect.innerHTML = '<option value="all">All Months</option>';
+        [...months].sort().reverse().forEach(m => {
+            monthSelect.innerHTML += `<option value="${m}">${m}</option>`;
+        });
+
+        // GST export month/year dropdowns
+        const gstMonth = document.getElementById('gstMonth');
+        const gstYear = document.getElementById('gstYear');
+        const now = new Date();
+        gstMonth.innerHTML = '';
+        for (let m = 1; m <= 12; m++) {
+            gstMonth.innerHTML += `<option value="${m}" ${m===now.getMonth()+1?'selected':''}>${getMonthName(m)}</option>`;
+        }
+        gstYear.innerHTML = '';
+        for (let y = now.getFullYear(); y >= 2025; y--) {
+            gstYear.innerHTML += `<option value="${y}">${y}</option>`;
+        }
+    }
+
+    function formatDate(iso) {
+        if (!iso) return '—';
+        try {
+            const d = new Date(iso);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        } catch(e) { return iso.substring(0,10); }
+    }
+
+    function formatTimestamp(ts) {
+        if (!ts) return '—';
+        try {
+            const d = ts.seconds ? new Date(ts.seconds * 1000) : new Date(ts);
+            return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+        } catch(e) { return '—'; }
+    }
+
+    function formatCompact(n) {
+        if (n >= 10000000) return (n/10000000).toFixed(1) + ' Cr';
+        if (n >= 100000) return (n/100000).toFixed(1) + ' L';
+        if (n >= 1000) return (n/1000).toFixed(1) + 'K';
+        return n.toFixed(0);
+    }
+
+    function getMonthName(m) {
+        return ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m];
+    }
+
+    function getCountryName(code) {
+        const names = {IN:'India',US:'United States',GB:'United Kingdom',AE:'UAE',CA:'Canada',AU:'Australia',SG:'Singapore',DE:'Germany',FR:'France'};
+        return names[code] || code;
+    }
+</script>
+</body>
+</html>
