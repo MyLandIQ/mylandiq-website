@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyLandIQ — City Intelligence Uploader</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#fff;min-height:100vh;padding:40px}
+.container{max-width:800px;margin:0 auto}
+h1{color:#4ecca3;margin-bottom:8px}
+p.sub{color:#94a3b8;margin-bottom:30px}
+.btn{padding:14px 28px;border:none;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;margin:8px 8px 8px 0}
+.btn-green{background:#4ecca3;color:#0f172a}
+.btn-green:hover{background:#38b28a}
+.btn-blue{background:#3b82f6;color:#fff}
+.btn-blue:hover{background:#2563eb}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+#log{background:#1e293b;border-radius:12px;padding:20px;margin-top:20px;max-height:500px;overflow-y:auto;font-family:monospace;font-size:0.85rem;line-height:1.8}
+.ok{color:#4ecca3}.err{color:#ef4444}.info{color:#94a3b8}.warn{color:#f59e0b}
+.stats{display:flex;gap:20px;margin:20px 0;flex-wrap:wrap}
+.stat{background:#1e293b;padding:16px 24px;border-radius:10px;text-align:center}
+.stat .num{font-size:2rem;font-weight:700;color:#4ecca3}
+.stat .lbl{font-size:0.8rem;color:#94a3b8;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>MyLandIQ — City Intelligence Uploader</h1>
+<p class="sub">Uploads 34 city intelligence packs to Firestore collection <code>city_intelligence</code></p>
+
+<button class="btn btn-blue" onclick="signIn()" id="btnSign">1. Sign in with Google</button>
+<button class="btn btn-green" onclick="uploadAll()" id="btnUpload" disabled>2. Upload All Cities</button>
+
+<div class="stats" id="stats" style="display:none">
+<div class="stat"><div class="num" id="sTotal">0</div><div class="lbl">Total Cities</div></div>
+<div class="stat"><div class="num" id="sOk">0</div><div class="lbl">Uploaded</div></div>
+<div class="stat"><div class="num" id="sErr">0</div><div class="lbl">Errors</div></div>
+</div>
+
+<div id="log"></div>
+</div>
+
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import{getAuth,signInWithPopup,GoogleAuthProvider}from"https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import{getFirestore,doc,setDoc}from"https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const app=initializeApp({apiKey:"AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",authDomain:"mylandiq.firebaseapp.com",projectId:"mylandiq",storageBucket:"mylandiq.firebasestorage.app",messagingSenderId:"94371578438",appId:"1:94371578438:web:5f1ce21e63afb1da5b4047"});
+const auth=getAuth(app);
+const db=getFirestore(app);
+const provider=new GoogleAuthProvider();
+
+const ADMIN=["rajiv@mylandiq.com","admin@mylandiq.com","ohri.rajiv.ai@gmail.com"];
+const logEl=document.getElementById('log');
+
+function log(msg,cls='info'){logEl.innerHTML+=`<div class="${cls}">${msg}</div>`;logEl.scrollTop=logEl.scrollHeight;}
+
+window.signIn=async()=>{
+try{
+const r=await signInWithPopup(auth,provider);
+if(!ADMIN.includes(r.user.email)){log('❌ Access denied. Admin only.','err');return;}
+log(`✅ Signed in as ${r.user.email}`,'ok');
+document.getElementById('btnUpload').disabled=false;
+document.getElementById('btnSign').disabled=true;
+}catch(e){log('❌ '+e.message,'err');}
+};
+
+// ═══════════════════════════════════════════════════════
+// 34 CITY INTELLIGENCE PACKS
+// ═══════════════════════════════════════════════════════
+
+const CITIES={
+
+"delhi_ncr":{city:"Delhi NCR",tier:1,dominant_economy:["government","corporate","retail","IT"],high_demand_projects:["retail_showroom","office","coworking","clinic","apartment"],emerging_projects:["hybrid_work_hub","digital_healthcare","edutainment_hub","data_center","ev_charging"],low_success_projects:["warehouse_inner_city","heavy_industry"],trending_projects:["ev_charging","dark_store","data_center","co_living","fintech_hub","creator_hub","digital_healthcare"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"medium"},special_notes:"Metro connectivity drives commercial value. Dwarka, Noida Extension for affordable; South Delhi for premium."},
+
+"mumbai":{city:"Mumbai",tier:1,dominant_economy:["finance","media","corporate","entertainment"],high_demand_projects:["commercial_office","retail","luxury_residential","co_living"],emerging_projects:["creator_hub","media_studio","premium_coworking","fintech_hub"],low_success_projects:["low_end_retail","warehouse_city","independent_house"],trending_projects:["fintech_hub","creator_hub","co_living","dark_store","data_center","digital_healthcare","coworking"],market_behavior:{price_sensitivity:"low",tech_adoption:"high",investment_horizon:"long_term"},special_notes:"Extreme land cost. Vertical only. Redevelopment is the game. BKC, Andheri for office."},
+
+"bangalore":{city:"Bangalore",tier:1,dominant_economy:["IT","startup","tech","biotech"],high_demand_projects:["coworking","startup_hub","co_living","tech_office"],emerging_projects:["ai_experience_center","innovation_lab","data_center","gaming_arena","creator_hub"],low_success_projects:["traditional_office","marriage_hall","heavy_industry"],trending_projects:["data_center","startup_incubator","gaming_esports","creator_hub","fintech_hub","co_living","coding_academy","ev_charging"],market_behavior:{price_sensitivity:"medium",tech_adoption:"very_high",investment_horizon:"long_term"},special_notes:"India's tech capital. Whitefield, Electronic City, Marathahalli for tech projects."},
+
+"hyderabad":{city:"Hyderabad",tier:1,dominant_economy:["IT","pharma","corporate"],high_demand_projects:["office","coworking","residential","data_center"],emerging_projects:["innovation_hub","gcc_hub","fintech_hub","biotech_lab"],low_success_projects:["small_retail_saturated","budget_hotel"],trending_projects:["data_center","fintech_hub","startup_incubator","ev_charging","co_living","smart_logistics","coding_academy"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"medium"},special_notes:"HITEC City, Gachibowli, Nanakramguda — India's GCC capital. Massive office demand."},
+
+"chennai":{city:"Chennai",tier:1,dominant_economy:["manufacturing","IT","automobile","port"],high_demand_projects:["industrial","warehouse","office","apartment"],emerging_projects:["smart_logistics","tech_training","ev_hub","data_center"],low_success_projects:["mall_secondary","luxury_villa"],trending_projects:["ev_charging","smart_logistics","data_center","skill_development","coding_academy","digital_healthcare"],market_behavior:{price_sensitivity:"medium",tech_adoption:"moderate",investment_horizon:"long_term"},special_notes:"OMR, Siruseri for IT. Ambattur, Guindy for industrial. Strong auto ecosystem."},
+
+"pune":{city:"Pune",tier:1,dominant_economy:["IT","education","automobile","defence"],high_demand_projects:["student_housing","coworking","office","apartment"],emerging_projects:["edutainment_hub","startup_hub","innovation_lab","co_living"],low_success_projects:["heavy_industry_inner","large_mall"],trending_projects:["startup_incubator","co_living","coding_academy","ev_charging","creator_hub","digital_healthcare","coworking"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"long_term"},special_notes:"Hinjewadi, Kharadi for IT. Largest student population — education-linked projects thrive."},
+
+"ahmedabad":{city:"Ahmedabad",tier:1,dominant_economy:["business","manufacturing","retail","textile","pharma"],high_demand_projects:["showroom","retail","warehouse","commercial_complex"],emerging_projects:["startup_hub","smart_logistics","fintech_hub"],low_success_projects:["luxury_office","premium_coworking"],trending_projects:["ev_charging","smart_logistics","fintech_hub","skill_development","dark_store","digital_healthcare"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"SG Highway, Prahlad Nagar for commercial. Business-first city — ROI trumps aesthetics."},
+
+"kolkata":{city:"Kolkata",tier:1,dominant_economy:["retail","government","services","education"],high_demand_projects:["retail","residential","clinic","coaching"],emerging_projects:["edutainment","digital_services","co_living"],low_success_projects:["high_end_commercial","luxury_villa","data_center"],trending_projects:["skill_development","digital_healthcare","ev_charging","dark_store","coding_academy","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Salt Lake, Rajarhat for IT. Price-conscious market — affordable wins."},
+
+"noida_gurgaon":{city:"Noida/Gurgaon",tier:1,dominant_economy:["IT","corporate","startup","services"],high_demand_projects:["office","coworking","apartment","retail"],emerging_projects:["gcc_hub","data_center","ai_center","innovation_lab","fintech_hub"],low_success_projects:["heavy_industry","budget_housing_prime"],trending_projects:["data_center","fintech_hub","startup_incubator","creator_hub","gaming_esports","co_living","dark_store","ev_charging"],market_behavior:{price_sensitivity:"medium",tech_adoption:"very_high",investment_horizon:"long_term"},special_notes:"Corporate India's hub. Cyber City, Sector 62-63 for IT. Film City Noida."},
+
+"chandigarh":{city:"Chandigarh",tier:2,dominant_economy:["government","services","education","retail"],high_demand_projects:["showroom","clinic","education","apartment","retail"],emerging_projects:["edutainment_hub","coworking","digital_healthcare","co_living"],low_success_projects:["heavy_industry","large_warehouse","data_center"],trending_projects:["ev_charging","skill_development","digital_healthcare","coworking","dark_store","coding_academy"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"medium"},special_notes:"Planned city. IT Park, Mohali for tech. Industrial Area for commercial."},
+
+"ludhiana":{city:"Ludhiana",tier:2,dominant_economy:["industrial","retail","SME","textile","bicycle"],high_demand_projects:["warehouse","retail","coaching_center","showroom","diagnostic"],emerging_projects:["skill_hub","edutainment","smart_logistics","ev_charging"],low_success_projects:["mall","luxury_office","coworking","data_center"],trending_projects:["ev_charging","skill_development","smart_logistics","dark_store","diagnostic_center","solar_farm"],market_behavior:{price_sensitivity:"high",tech_adoption:"medium",investment_horizon:"short_term"},special_notes:"India's industrial hub. Focal Point, Gill Road for industrial. Ferozepur Road for retail."},
+
+"jaipur":{city:"Jaipur",tier:2,dominant_economy:["tourism","retail","handicraft","IT_emerging"],high_demand_projects:["retail","hospitality","showroom","guest_house"],emerging_projects:["tourism_tech","experience_hub","heritage_hotel","creator_hub"],low_success_projects:["heavy_industry","large_office"],trending_projects:["ev_charging","skill_development","digital_healthcare","creator_hub","dark_store"],market_behavior:{price_sensitivity:"medium",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Tourism drives 30% of economy. Mansarovar, Vaishali Nagar for residential."},
+
+"lucknow":{city:"Lucknow",tier:2,dominant_economy:["government","retail","real_estate"],high_demand_projects:["residential","retail","coaching","clinic"],emerging_projects:["edutainment","digital_healthcare","coworking"],low_success_projects:["luxury_office","data_center","innovation_lab"],trending_projects:["ev_charging","skill_development","digital_healthcare","diagnostic_center","dark_store"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Gomti Nagar for premium. Government jobs drive residential demand."},
+
+"indore":{city:"Indore",tier:2,dominant_economy:["education","retail","pharma","IT_emerging"],high_demand_projects:["education","retail","student_housing","clinic"],emerging_projects:["startup_hub","edutainment","coaching_tech","co_living"],low_success_projects:["heavy_industry","luxury_hotel"],trending_projects:["ev_charging","skill_development","coding_academy","dark_store","diagnostic_center","co_living"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Cleanest city, education hub. Vijay Nagar for student economy."},
+
+"coimbatore":{city:"Coimbatore",tier:2,dominant_economy:["manufacturing","textile","IT_emerging","education"],high_demand_projects:["industrial","education","warehouse","residential"],emerging_projects:["tech_training","smart_manufacturing","startup_hub"],low_success_projects:["luxury_commercial","large_mall"],trending_projects:["ev_charging","skill_development","smart_logistics","coding_academy","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"long_term"},special_notes:"Manchester of South India. TIDEL Park for IT. Strong engineering talent."},
+
+"kochi":{city:"Kochi",tier:2,dominant_economy:["tourism","shipping","IT","spice_trade"],high_demand_projects:["tourism","retail","apartment","office"],emerging_projects:["digital_hub","fintech","smart_port_services","creator_hub"],low_success_projects:["heavy_industry","large_warehouse"],trending_projects:["fintech_hub","ev_charging","digital_healthcare","creator_hub","skill_development"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"medium"},special_notes:"Infopark, SmartCity for IT. Marine Drive for premium. Tourism + IT city."},
+
+"nagpur":{city:"Nagpur",tier:2,dominant_economy:["logistics","government","agriculture"],high_demand_projects:["logistics","warehouse","retail","residential"],emerging_projects:["data_center","smart_logistics","cold_storage"],low_success_projects:["luxury_commercial","coworking"],trending_projects:["smart_logistics","ev_charging","cold_storage","solar_farm","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"medium"},special_notes:"India's geographic center. MIHAN for logistics. Zero-mile city."},
+
+"surat":{city:"Surat",tier:2,dominant_economy:["diamond","textile","retail","SME"],high_demand_projects:["retail","textile_commercial","showroom","warehouse"],emerging_projects:["showroom_cluster","smart_logistics","fintech"],low_success_projects:["luxury_office","coworking","data_center"],trending_projects:["ev_charging","smart_logistics","dark_store","skill_development","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"short_term"},special_notes:"Diamond & textile capital. Ring Road for commercial. Fast-growing."},
+
+"bhopal":{city:"Bhopal",tier:2,dominant_economy:["government","education","retail"],high_demand_projects:["residential","institutional","retail","clinic"],emerging_projects:["education_tech","edutainment","coworking"],low_success_projects:["luxury_commercial","heavy_industry","data_center"],trending_projects:["ev_charging","skill_development","digital_healthcare","diagnostic_center","coding_academy"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Lake city. Government employment drives residential. Hoshangabad Road corridor."},
+
+"patna":{city:"Patna",tier:2,dominant_economy:["coaching","government","retail","agriculture"],high_demand_projects:["coaching","retail","student_housing","clinic","residential"],emerging_projects:["edutainment","diagnostic_center","digital_coaching"],low_success_projects:["luxury_anything","office_building","data_center"],trending_projects:["skill_development","diagnostic_center","ev_charging","dark_store","digital_healthcare"],market_behavior:{price_sensitivity:"very_high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"India's coaching capital after Kota. Boring Road, Bailey Road for commercial."},
+
+"hoshiarpur":{city:"Hoshiarpur",tier:3,dominant_economy:["agriculture","NRI_remittance","retail","education"],high_demand_projects:["individual_house","retail_market","warehouse","coaching","clinic"],emerging_projects:["cold_storage","diagnostic_center","ev_charging","skill_development"],low_success_projects:["mall","office_building","coworking","luxury_apartment","hotel"],trending_projects:["ev_charging","cold_storage","solar_farm","skill_development","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"Strong NRI population. Real estate for personal use > investment. GT Road for commercial."},
+
+"jalandhar":{city:"Jalandhar",tier:2,dominant_economy:["sports_goods","retail","education","NRI"],high_demand_projects:["showroom","retail","coaching","warehouse","apartment"],emerging_projects:["skill_hub","edutainment","diagnostic_center","ev_charging"],low_success_projects:["luxury_office","data_center","innovation_lab"],trending_projects:["ev_charging","skill_development","dark_store","diagnostic_center","smart_logistics"],market_behavior:{price_sensitivity:"high",tech_adoption:"medium",investment_horizon:"short_term"},special_notes:"Sports goods capital. BMC Chowk, GT Road for commercial. Education hub."},
+
+"amritsar":{city:"Amritsar",tier:2,dominant_economy:["tourism","retail","heritage","food_processing"],high_demand_projects:["hotel","guest_house","retail","restaurant","showroom"],emerging_projects:["heritage_hospitality","experience_hub","food_tech","ev_charging"],low_success_projects:["office_building","coworking","data_center"],trending_projects:["ev_charging","digital_healthcare","skill_development","dark_store"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"medium"},special_notes:"Golden Temple tourism drives hospitality. GT Road, Lawrence Road for commercial."},
+
+"bathinda":{city:"Bathinda",tier:3,dominant_economy:["agriculture","thermal_power","retail"],high_demand_projects:["individual_house","retail_shop","warehouse","clinic"],emerging_projects:["cold_storage","agri_processing","diagnostic","coaching"],low_success_projects:["office","hotel","mall","coworking","apartment"],trending_projects:["solar_farm","cold_storage","ev_charging","diagnostic_center","skill_development"],market_behavior:{price_sensitivity:"very_high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"Agricultural town. Power plant workers drive residential."},
+
+"mohali":{city:"Mohali",tier:2,dominant_economy:["IT","education","real_estate"],high_demand_projects:["apartment","office","retail","coaching"],emerging_projects:["startup_hub","coworking","edutainment","co_living"],low_success_projects:["heavy_industry","large_warehouse"],trending_projects:["startup_incubator","coworking","ev_charging","co_living","coding_academy","skill_development"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"medium"},special_notes:"IT Park extension of Chandigarh. Phase 8B, Sector 82-83 for tech."},
+
+"patiala":{city:"Patiala",tier:3,dominant_economy:["government","education","retail","sports"],high_demand_projects:["individual_house","retail","coaching","clinic"],emerging_projects:["sports_academy","diagnostic_center","skill_hub"],low_success_projects:["office","mall","coworking","hotel"],trending_projects:["ev_charging","skill_development","diagnostic_center","solar_farm"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"University city. Rajpura for industrial. Leela Bhawan area for premium retail."},
+
+"visakhapatnam":{city:"Visakhapatnam",tier:2,dominant_economy:["port","steel","IT_emerging","pharma"],high_demand_projects:["warehouse","office","apartment","hospitality"],emerging_projects:["smart_port","data_center","fintech","tech_hub"],low_success_projects:["luxury_mall","premium_villa"],trending_projects:["data_center","smart_logistics","ev_charging","fintech_hub","skill_development"],market_behavior:{price_sensitivity:"medium",tech_adoption:"moderate",investment_horizon:"long_term"},special_notes:"AP's proposed capital area. Rushikonda, Madhurawada for IT."},
+
+"mysore":{city:"Mysore",tier:2,dominant_economy:["IT","tourism","education"],high_demand_projects:["residential","IT_office","hospitality","retail"],emerging_projects:["startup_hub","heritage_tourism","wellness_center"],low_success_projects:["heavy_industry","large_warehouse"],trending_projects:["ev_charging","skill_development","digital_healthcare","coworking","coding_academy"],market_behavior:{price_sensitivity:"medium",tech_adoption:"moderate",investment_horizon:"long_term"},special_notes:"IT overflow from Bangalore. Hebbal, Hootagalli for tech."},
+
+"vadodara":{city:"Vadodara",tier:2,dominant_economy:["manufacturing","chemical","education","retail"],high_demand_projects:["industrial","retail","residential","warehouse"],emerging_projects:["smart_manufacturing","startup_hub","tech_training"],low_success_projects:["luxury_office","premium_coworking"],trending_projects:["ev_charging","smart_logistics","skill_development","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Industrial corridor to Ahmedabad. Makarpura for industrial."},
+
+"dehradun":{city:"Dehradun",tier:2,dominant_economy:["education","defence","tourism","government"],high_demand_projects:["residential","education","hospitality","coaching"],emerging_projects:["wellness_retreat","edutainment","eco_tourism","co_living"],low_success_projects:["heavy_industry","large_warehouse","data_center"],trending_projects:["ev_charging","skill_development","digital_healthcare","co_living"],market_behavior:{price_sensitivity:"medium",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Retirement + education city. Rajpur Road, Sahastradhara for premium."},
+
+"ranchi":{city:"Ranchi",tier:2,dominant_economy:["mining","government","retail"],high_demand_projects:["retail","residential","coaching","clinic"],emerging_projects:["diagnostic_center","skill_hub","edutainment"],low_success_projects:["luxury_office","mall","coworking"],trending_projects:["skill_development","diagnostic_center","ev_charging","digital_healthcare"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"Capital city effect. Doranda, Harmu for residential."},
+
+"guwahati":{city:"Guwahati",tier:2,dominant_economy:["retail","government","tea","tourism"],high_demand_projects:["retail","residential","hospitality","coaching"],emerging_projects:["eco_tourism","digital_services","cold_storage"],low_success_projects:["heavy_industry","luxury_commercial"],trending_projects:["ev_charging","cold_storage","skill_development","digital_healthcare","diagnostic_center"],market_behavior:{price_sensitivity:"high",tech_adoption:"moderate",investment_horizon:"medium"},special_notes:"Gateway to Northeast. GS Road, Zoo Road for commercial."},
+
+"thiruvananthapuram":{city:"Thiruvananthapuram",tier:2,dominant_economy:["IT","government","tourism","space_tech"],high_demand_projects:["office","residential","hospitality","retail"],emerging_projects:["tech_hub","space_tech","digital_services","wellness"],low_success_projects:["heavy_industry","large_warehouse"],trending_projects:["data_center","ev_charging","fintech_hub","skill_development","coding_academy","digital_healthcare"],market_behavior:{price_sensitivity:"medium",tech_adoption:"high",investment_horizon:"long_term"},special_notes:"Technopark, Technocity for IT. ISRO drives space-tech ecosystem."},
+
+"raipur":{city:"Raipur",tier:2,dominant_economy:["steel","mining","retail","agriculture"],high_demand_projects:["retail","warehouse","residential","showroom"],emerging_projects:["smart_logistics","diagnostic_center","skill_hub"],low_success_projects:["luxury_office","coworking","innovation_lab"],trending_projects:["smart_logistics","ev_charging","skill_development","diagnostic_center","solar_farm"],market_behavior:{price_sensitivity:"high",tech_adoption:"low",investment_horizon:"short_term"},special_notes:"Steel belt city. Naya Raipur for planned development."}
+
+};
+
+let uploaded=0,errors=0;
+
+window.uploadAll=async()=>{
+const keys=Object.keys(CITIES);
+document.getElementById('stats').style.display='flex';
+document.getElementById('sTotal').textContent=keys.length;
+document.getElementById('btnUpload').disabled=true;
+log(`🚀 Starting upload of ${keys.length} cities...`,'info');
+
+for(const key of keys){
+const data=CITIES[key];
+try{
+await setDoc(doc(db,"city_intelligence",key),data);
+uploaded++;
+document.getElementById('sOk').textContent=uploaded;
+log(`✅ ${data.city} (${key})`,'ok');
+}catch(e){
+errors++;
+document.getElementById('sErr').textContent=errors;
+log(`❌ ${key}: ${e.message}`,'err');
+}
+}
+
+log('','info');
+if(errors===0){
+log(`🎉 ALL ${uploaded} CITIES UPLOADED SUCCESSFULLY!`,'ok');
+log('You can now close this page. City intelligence is live in Firestore.','ok');
+}else{
+log(`⚠️ Done with ${errors} errors. Check Firebase Console.`,'warn');
+}
+};
+</script>
+</body>
+</html>
