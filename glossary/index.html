@@ -9,24 +9,23 @@
     <meta name="keywords" content="real estate glossary, property investment terms, land development terminology, ROI calculation, FAR FSI explained, highest and best use, city tier classification, real estate India, property analysis terms, land investment guide, construction cost terms, zoning regulations India">
     <meta name="author" content="MyLandIQ">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.mylandiq.com/glossary/">
+    <link rel="canonical" href="https://www.mylandiq.com/glossary">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mylandiq.com/glossary">
     <meta property="og:title" content="Real Estate Glossary & Property Investment Terms | MyLandIQ">
     <meta property="og:description" content="Master 50+ essential real estate and property investment terms. Your complete guide to understanding land development, ROI, zoning, and more.">
-    <meta property="og:image" content="https://www.mylandiq.com/og-image.png">
+    <meta property="og:image" content="https://www.mylandiq.com/images/glossary-og-image.jpg">
     <meta property="og:site_name" content="MyLandIQ">
     <meta property="og:locale" content="en_IN">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@mylandiq">
     <meta name="twitter:url" content="https://www.mylandiq.com/glossary">
     <meta name="twitter:title" content="Real Estate Glossary & Property Investment Terms | MyLandIQ">
     <meta name="twitter:description" content="Master 50+ essential real estate and property investment terms. Your complete guide to understanding land development, ROI, zoning, and more.">
-    <meta name="twitter:image" content="https://www.mylandiq.com/og-image.png">
+    <meta name="twitter:image" content="https://www.mylandiq.com/images/glossary-twitter-image.jpg">
 
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#0f172a">
@@ -88,8 +87,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -161,16 +159,16 @@
         }
 
         .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
             text-decoration: none;
-            display: flex;
-            align-items: center;
+            letter-spacing: -0.5px;
         }
 
-        .logo-img {
-            height: 160px;
-            width: auto;
-            object-fit: contain;
-            margin: -50px 0;
+        .logo span {
+            color: var(--accent-green);
         }
 
         nav ul {
@@ -663,11 +661,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .logo-img {
-                height: 120px;
-                margin: -35px 0;
-            }
-
             .mobile-menu-btn {
                 display: block;
             }
@@ -770,33 +763,27 @@
         .glossary-card:nth-child(3) { animation-delay: 0.1s; }
         .glossary-card:nth-child(4) { animation-delay: 0.15s; }
         .glossary-card:nth-child(5) { animation-delay: 0.2s; }
-    
-        /* Accessibility: Focus indicator for keyboard navigation */
-        *:focus-visible {
-            outline: 3px solid #4ecca3;
-            outline-offset: 2px;
-        }
     </style>
-
 </head>
 <body>
-    <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" tabindex="0">Skip to main content</a>
     <!-- Background Pattern -->
     <div class="bg-pattern"></div>
 
     <!-- Header -->
-    <header id="main-content">
+    <header>
         <div class="header-container">
-            <a href="/" class="logo"><picture><source srcset="/assets/logo-header.webp" type="image/webp"><img src="/assets/logo-header.png" alt="MyLandIQ - Next-Gen Location Analytics" class="logo-img" width="571" height="320"></picture></a>
+            <a href="/" class="logo">My<span>Land</span>IQ</a>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <nav>
                 <ul id="navMenu">
                     <li><a href="/#features">Features</a></li>
                     <li><a href="/#how-it-works">How It Works</a></li>
                     <li><a href="/#pricing">Pricing</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/download" class="nav-btn">Download App</a></li>
+                    <li><a href="/faq/">FAQ</a></li>
+                    <li><a href="/glossary/">Glossary</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="nav-btn" target="_blank" rel="noopener">Download App</a></li>
                 </ul>
             </nav>
         </div>
@@ -1006,6 +993,18 @@
                 <div class="card-example"><strong>Warning:</strong> Never purchase property without valid CC - it may be illegal construction.</div>
             </article>
 
+            <article class="glossary-card" data-category="market" data-letter="C">
+                <div class="card-header">
+                    <div class="card-icon">🧠</div>
+                    <div class="card-title">
+                        <h3>City Intelligence</h3>
+                        <span class="card-category">Market Analysis</span>
+                    </div>
+                </div>
+                <p>AI-powered local market knowledge engine that provides city-specific demand patterns, trending sectors, and project success data for 200+ Indian cities. MyLandIQ's City Intelligence knows which projects thrive in specific cities — e.g., coaching centres in Patna, warehousing in Ludhiana, co-working in Bangalore.</p>
+                <div class="card-example"><strong>How it works:</strong> The engine boosts projects that match local demand (+20 score) and penalises those with low local success rates (-20 score), ensuring recommendations are city-smart, not just tier-aware.</div>
+            </article>
+
             <!-- D -->
             <div class="letter-header" id="D"><h2>D</h2></div>
 
@@ -1031,6 +1030,18 @@
                 </div>
                 <p>Comprehensive investigation of property before purchase, including title verification, encumbrance check, physical inspection, and legal compliance review.</p>
                 <div class="card-example"><strong>Checklist:</strong> Title deed, EC, approved plan, tax receipts, RERA registration, NOCs.</div>
+            </article>
+
+            <article class="glossary-card" data-category="market" data-letter="D">
+                <div class="card-header">
+                    <div class="card-icon">🏪</div>
+                    <div class="card-title">
+                        <h3>Dark Store</h3>
+                        <span class="card-category">Market Analysis</span>
+                    </div>
+                </div>
+                <p>A fulfilment centre for quick-commerce platforms (Blinkit, Zepto, Instamart) with no customer walk-in. Used for 10-minute delivery operations in urban areas. Dark stores are warehouse-like spaces located in residential or commercial zones, optimised for rapid order picking and dispatch.</p>
+                <div class="card-example"><strong>Investment insight:</strong> Dark stores need 200-1,000 sq yards in urban areas with high population density. One of the fastest-growing commercial property segments in Tier 1-3 Indian cities (2025-26).</div>
             </article>
 
             <!-- E -->
@@ -1124,6 +1135,18 @@
                 </div>
                 <p>Annual rental income as percentage of property value, before deducting expenses. A key metric for rental property investment analysis.</p>
                 <div class="card-example"><strong>Formula:</strong> Gross Yield = (Annual Rent / Property Value) × 100. Typical: 3-6% in India.</div>
+            </article>
+
+            <article class="glossary-card" data-category="market" data-letter="G">
+                <div class="card-header">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">
+                        <h3>GCC (Global Capability Center)</h3>
+                        <span class="card-category">Market Analysis</span>
+                    </div>
+                </div>
+                <p>Corporate innovation and technology centres established by multinational companies for R&D, engineering, analytics, and business operations. India hosts 1,700+ GCCs — the highest globally — primarily in Hyderabad, Bangalore, Pune, and Chennai. GCCs drive massive demand for Grade-A office space.</p>
+                <div class="card-example"><strong>Investment insight:</strong> GCC expansion is the #1 driver of commercial office demand in Tier 1 Indian cities. A single GCC typically leases 50,000-200,000 sq ft of space.</div>
             </article>
 
             <!-- H -->
@@ -1471,6 +1494,30 @@
                 <div class="card-example"><strong>Investment Tip:</strong> Horizontal development (plotted, warehouse) often outperforms vertical in Tier 3.</div>
             </article>
 
+            <article class="glossary-card" data-category="market" data-letter="T">
+                <div class="card-header">
+                    <div class="card-icon">💻</div>
+                    <div class="card-title">
+                        <h3>Tech-Enabled Projects</h3>
+                        <span class="card-category">Market Analysis</span>
+                    </div>
+                </div>
+                <p>Next-generation commercial and institutional project types driven by technology adoption. These include FinTech Hubs, Edutainment Centres, Data Centres, EV Charging Stations, Dark Stores, Creator Studios, AI Diagnostic Centres, Smart Logistics Hubs, Gaming Arenas, and Innovation Labs. MyLandIQ recommends 19 tech-enabled project types alongside traditional options.</p>
+                <div class="card-example"><strong>Why it matters:</strong> Tech-enabled projects typically command 20-40% higher rental yields than traditional commercial spaces, especially in Tier 1-2 cities with high tech adoption.</div>
+            </article>
+
+            <article class="glossary-card" data-category="market" data-letter="T">
+                <div class="card-header">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">
+                        <h3>Trending Sectors</h3>
+                        <span class="card-category">Market Analysis</span>
+                    </div>
+                </div>
+                <p>Nationally trending business sectors identified for the current year based on government policy, venture capital funding, and market growth data. In MyLandIQ, trending projects are tagged with a 🔥 badge and receive a scoring boost. For 2026, trending sectors include EV charging, quick-commerce (dark stores), data centres, co-living, digital healthcare, creator economy, FinTech, solar energy, and skill development.</p>
+                <div class="card-example"><strong>Updated annually:</strong> Trending tags are refreshed each year. When a sector stops trending, the 🔥 badge and scoring boost are automatically removed.</div>
+            </article>
+
             <!-- V -->
             <div class="letter-header" id="V"><h2>V</h2></div>
 
@@ -1540,7 +1587,7 @@
             <a href="https://play.google.com/store/apps/details?id=com.rajivohri.landiq" class="cta-btn cta-btn-primary">
                 <span>▶</span> Get on Google Play
             </a>
-            <a href="/#features" class="cta-btn cta-btn-secondary">
+            <a href="/features" class="cta-btn cta-btn-secondary">
                 Learn More
             </a>
         </div>
@@ -1583,15 +1630,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>
-            <p style="margin-top: 15px;">
-                <a href="https://www.facebook.com/profile.php?id=61582203849606" target="_blank" rel="noopener" aria-label="Facebook page" style="margin: 0 8px;">Facebook</a> |
-                <a href="https://www.instagram.com/mylandiq" target="_blank" rel="noopener" aria-label="Instagram page" style="margin: 0 8px;">Instagram</a> |
-                <a href="https://www.linkedin.com/company/mylandiq/" target="_blank" rel="noopener" aria-label="LinkedIn page" style="margin: 0 8px;">LinkedIn</a> |
-                <a href="https://x.com/mylandiq" target="_blank" rel="noopener" aria-label="X Twitter page" style="margin: 0 8px;">X (Twitter)</a>
-            </p>
-            <p style="font-size: 0.85em; margin-top: 8px;">GSTIN: 03AAAPO7488G1ZL</p>
-            © 2026 MyLandIQ. All rights reserved. | Made with ❤️ in India</p>
+                <p>© 2026 MyLandIQ. All rights reserved. | Made with ❤️ in India</p>
             </div>
         </div>
     </footer>
@@ -1670,23 +1709,6 @@
                 }
             });
         });
-    </script>
-
-    <!-- Firebase + Google Analytics 4 -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyCLcSVFUqae1f7REOqp_LnmEKJNvcwWGVE",
-            authDomain: "mylandiq.firebaseapp.com",
-            projectId: "mylandiq",
-            storageBucket: "mylandiq.firebasestorage.app",
-            messagingSenderId: "94371578438",
-            appId: "1:94371578438:web:5f1ce21e63afb1da5b4047",
-            measurementId: "G-WMEWG2WCZG"
-        };
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
     </script>
 </body>
 </html>
