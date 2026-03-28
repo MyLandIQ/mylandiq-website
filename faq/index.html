@@ -491,4 +491,19 @@
         <div class="footer">
             <p><a href="/">Home</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/terms/">Terms</a> | <a href="/refund-policy/">Refunds</a> | <a href="/contact/">Contact</a></p>
             <br>
-            <p
+            <p style="font-size:0.85em;color:#999;">GSTIN: 03AAAPO7488G1ZL</p>
+            <p>&copy; 2026 MyLandIQ. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
