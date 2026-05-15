@@ -383,8 +383,8 @@
     const db = getFirestore(app);
     const provider = new GoogleAuthProvider();
 
-    // Admin email whitelist
-    const ADMIN_EMAILS = ["rajiv@mylandiq.com", "admin@mylandiq.com", "ohri.rajiv.ai@gmail.com"];
+    // Admin email whitelist — must match Firestore rules isAdmin() function
+    const ADMIN_EMAILS = ["rajiv@mylandiq.com", "admin@mylandiq.com", "ohri.rajiv.ai@gmail.com", "ohrilishav@gmail.com"];
 
     // ═══ Global data cache ═══
     let allInvoices = [];
@@ -425,32 +425,96 @@
     });
 
     // ═══ DATA LOADING ═══
+    // Loads all 4 collections in parallel via Promise.allSettled.
+    // If any single collection fails, the others still render and an
+    // error banner appears on Overview + an inline error in the affected tab.
     async function loadAllData() {
-        try {
-            // Load invoices
-            const invSnap = await getDocs(query(collection(db, 'invoices'), orderBy('createdAt', 'desc')));
-            allInvoices = invSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        const results = await Promise.allSettled([
+            getDocs(query(collection(db, 'invoices'), orderBy('createdAt', 'desc'))),
+            getDocs(query(collection(db, 'transactions'), orderBy('createdAt', 'desc'))),
+            getDocs(collection(db, 'users')),
+            getDocs(query(collection(db, 'consent_log'), orderBy('acceptedAtMillis', 'desc')))
+        ]);
 
-            // Load transactions
-            const txnSnap = await getDocs(query(collection(db, 'transactions'), orderBy('createdAt', 'desc')));
-            allTransactions = txnSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        const [invRes, txnRes, userRes, consentRes] = results;
+        const loadErrors = [];
 
-            // Load users
-            const userSnap = await getDocs(collection(db, 'users'));
-            allUsers = userSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (invRes.status === 'fulfilled') {
+            allInvoices = invRes.value.docs.map(d => ({ id: d.id, ...d.data() }));
+        } else {
+            console.error('Failed to load invoices:', invRes.reason);
+            loadErrors.push({ collection: 'invoices', error: invRes.reason });
+        }
 
-            // Load consent logs
-            const consentSnap = await getDocs(query(collection(db, 'consent_log'), orderBy('acceptedAtMillis', 'desc')));
-            allConsent = consentSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (txnRes.status === 'fulfilled') {
+            allTransactions = txnRes.value.docs.map(d => ({ id: d.id, ...d.data() }));
+        } else {
+            console.error('Failed to load transactions:', txnRes.reason);
+            loadErrors.push({ collection: 'transactions', error: txnRes.reason });
+        }
 
-            renderOverview();
-            renderInvoices();
-            renderTransactions();
-            renderConsent();
-            renderUsers();
-            populateFilters();
-        } catch (e) {
-            console.error('Data load error:', e);
+        if (userRes.status === 'fulfilled') {
+            allUsers = userRes.value.docs.map(d => ({ id: d.id, ...d.data() }));
+        } else {
+            console.error('Failed to load users:', userRes.reason);
+            loadErrors.push({ collection: 'users', error: userRes.reason });
+        }
+
+        if (consentRes.status === 'fulfilled') {
+            allConsent = consentRes.value.docs.map(d => ({ id: d.id, ...d.data() }));
+        } else {
+            console.error('Failed to load consent_log:', consentRes.reason);
+            loadErrors.push({ collection: 'consent_log', error: consentRes.reason });
+        }
+
+        // Always render — partial data is better than a frozen spinner
+        renderOverview();
+        renderInvoices();
+        renderTransactions();
+        renderConsent();
+        renderUsers();
+        populateFilters();
+
+        if (loadErrors.length > 0) {
+            showLoadErrors(loadErrors);
+        }
+    }
+
+    function showLoadErrors(errors) {
+        const errorTargets = {
+            'invoices': 'allInvoicesTable',
+            'transactions': 'transactionsTable',
+            'users': 'usersTable',
+            'consent_log': 'consentTable'
+        };
+
+        errors.forEach(({ collection, error }) => {
+            const targetId = errorTargets[collection];
+            if (targetId) {
+                const el = document.getElementById(targetId);
+                if (el) {
+                    el.innerHTML = `
+                        <div class="empty-state" style="border-left:4px solid var(--red);background:var(--red-light);text-align:left;padding:20px">
+                            <h3 style="color:var(--red)">⚠️ Failed to load ${collection}</h3>
+                            <p style="color:var(--gray-600);font-size:0.85rem;margin-top:8px">
+                                ${error.code || 'Error'}: ${error.message || 'Unknown error'}
+                            </p>
+                            <p style="color:var(--gray-500);font-size:0.8rem;margin-top:6px">
+                                Check Firestore rules &amp; browser console for details.
+                            </p>
+                        </div>`;
+                }
+            }
+        });
+
+        // Top-level banner on Overview tab
+        const overviewTab = document.getElementById('tab-overview');
+        if (overviewTab && !overviewTab.querySelector('.load-error-banner')) {
+            const banner = document.createElement('div');
+            banner.className = 'load-error-banner';
+            banner.style.cssText = 'background:var(--red-light);border:1px solid var(--red);color:var(--red);padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:0.9rem';
+            banner.innerHTML = `⚠️ ${errors.length} collection(s) failed to load: <strong>${errors.map(e => e.collection).join(', ')}</strong>. See affected tabs for details.`;
+            overviewTab.insertBefore(banner, overviewTab.firstChild);
         }
     }
 
