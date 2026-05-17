@@ -316,7 +316,7 @@
                         <div>✅ Invoice Number & Date</div>
                         <div>✅ Buyer Name, Email, Country</div>
                         <div>✅ Buyer GSTIN (if Indian B2B)</div>
-                        <div>✅ SAC Code (998315)</div>
+                        <div>✅ SAC Code (998319)</div>
                         <div>✅ Taxable Value</div>
                         <div>✅ CGST, SGST, IGST amounts</div>
                         <div>✅ Total Amount</div>
@@ -709,7 +709,7 @@
                 `"${i.invoiceNumber||''}"`, `"${formatDate(i.invoiceDate)}"`, `"${i.financialYear||''}"`,
                 `"${i.buyer_name||''}"`, `"${i.buyer_email||''}"`,
                 `"${i.buyer_country||''}"`, `"${i.buyer_gstin||''}"`, `"${i.buyer_state||''}"`,
-                `"${i.item_sacCode||'998315'}"`, `"${(i.item_description||'').replace(/"/g,'""')}"`,
+                `"${i.item_sacCode||'998319'}"`, `"${(i.item_description||'').replace(/"/g,'""')}"`,
                 (i.taxableValue||0).toFixed(2), (i.cgst||0).toFixed(2),
                 (i.sgst||0).toFixed(2), (i.igst||0).toFixed(2), (i.totalTax||0).toFixed(2),
                 (i.totalAmount||0).toFixed(2),
